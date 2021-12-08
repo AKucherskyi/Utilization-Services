@@ -1,0 +1,51 @@
+<div class="container">
+  <p>Тип отходов</p>
+
+  <div>
+    <input type="checkbox" id="plastic" name="plastic" [(ngModel)]="plastic" (change)="onToggle()"/>
+    <label for="plastic">Пластик</label>
+  </div>
+
+  <div>
+    <input type="checkbox" id="metal" name="metal" />
+    <label for="metal">Металл</label>
+  </div>
+
+  <div>
+    <input type="checkbox" id="paper" name="paper" />
+    <label for="paper">Бумага</label>
+  </div>
+
+  <div>
+    <input type="checkbox" id="battery" name="battery" />
+    <label for="battery">Батарейки</label>
+  </div>
+
+  <div>
+    <input type="checkbox" id="glass" name="glass" />
+    <label for="glass">Стекло</label>
+  </div>
+
+  <div>
+    <input type="checkbox" id="danger" name="danger" />
+    <label for="danger">Опасные отходы</label>
+  </div>
+
+  <p>Условия оплаты</p>
+
+  <div>
+    <input type="checkbox" id="plastic" name="plastic"/>
+    <label for="plastic">Бесплатно</label>
+  </div>
+
+  <div>
+    <input type="checkbox" id="metal" name="metal" />
+    <label for="metal">Платно</label>
+  </div>
+
+  <div>
+    <input type="checkbox" id="paper" name="paper" />
+    <label for="paper">Прибыльно</label>
+  </div>
+
+</div>

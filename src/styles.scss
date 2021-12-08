@@ -1,24 +1,30 @@
 @font-face {
-    font-family: 'RedRose';
-    src: url(assets/fonts/Red_Rose/static/RedRose-Light.ttf) format("truetype");
-  }
+  font-family: "RedRose";
+  src: url(assets/fonts/Red_Rose/static/RedRose-Light.ttf) format("truetype");
+}
 
-  @font-face {
-    font-family: 'Roboto';
-    src: url(assets/fonts/Roboto/Roboto-Regular.ttf) format("truetype");
-  }
+@font-face {
+  font-family: "Roboto";
+  src: url(assets/fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+}
 
 body {
-    margin: 0;
-    font-family: 'RedRose', Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: "RedRose", Arial, Helvetica, sans-serif;
 }
 
 .marker {
-    background-image: url('./assets/mapbox-icon.png');
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  
+ 
+  background-size: cover;
+  width: 45px;
+  height: 61px;
+  cursor: pointer;
+}
+
+.plastic {
+  background-image: url("./assets/mapbox-icon-plastic.png");
+}
+
+.Feature {
+  background-image: url("./assets/mapbox-icon.png");
+}
