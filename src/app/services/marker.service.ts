@@ -1,8 +1,8 @@
 import { GeoJson } from './../shared/interfaces';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 
-
+export type TypeOfWaste = 'plastic' | 'metal'
 const geojson = {
   type: 'FeatureCollection',
   features: [
@@ -13,41 +13,69 @@ const geojson = {
         coordinates: [30.32,59.94 ]
       },
       properties: {
-        title: 'Mapbox',
-        description: 'Washington, D.C.'
+        title: '«Раздельный сбор»',
+        description: 'пластик, металл, макулатура',
+        adress: 'Английский проспект, 26'
       }
     },
     {
-      type: 'Feature',
+      type: 'plastic',
       geometry: {
         type: 'Point',
         coordinates: [30.32, 59.84]
       },
       properties: {
-        title: 'Mapbox',
-        description: 'San Francisco, California'
+        title: '«Раздельный сбор»',
+        description: 'пластик, металл, макулатура',
+        adress: 'Английский проспект, 26'
       }
     },
     {
-      type: 'Feature',
+      type: 'plastic',
+      geometry: {
+        type: 'Point',
+        coordinates: [30.31, 59.87]
+      },
+      properties: {
+        title: '«Раздельный сбор»',
+        description: 'пластик, металл, макулатура',
+        adress: 'Английский проспект, 26'
+      }
+    },
+    {
+      type: 'metal',
+      geometry: {
+        type: 'Point',
+        coordinates: [30.33,59.91 ]
+      },
+      properties: {
+        title: '«Раздельный сбор»',
+        description: 'пластик, металл, макулатура',
+        adress: 'Английский проспект, 26'
+      }
+    },
+    {
+      type: 'metal',
       geometry: {
         type: 'Point',
         coordinates: [30.40, 59.90]
       },
       properties: {
-        title: 'Mapbox',
-        description: 'San Francisco, California'
+        title: '«Раздельный сбор»',
+        description: 'пластик, металл, макулатура',
+        adress: 'Английский проспект, 26'
       }
     },
     {
-      type: 'Feature',
+      type: 'metal',
       geometry: {
         type: 'Point',
         coordinates: [30.42, 59.89]
       },
       properties: {
-        title: 'Mapbox',
-        description: 'San Francisco, California'
+        title: '«Раздельный сбор»',
+        description: 'пластик, металл, макулатура',
+        adress: 'Английский проспект, 26'
       }
     }
   ]
@@ -58,20 +86,12 @@ const geojson = {
 })
 export class MarkerService {
   
-  plastic$ = new BehaviorSubject(false)
+  plastic$ = new Subject<[any, any]>()
   markers$ = new BehaviorSubject({})
   geojson!: GeoJson
   
 
-  constructor() {
-    this.plastic$.subscribe((value) => {
-      if (value) {
-        this.markers$.next(geojson)
-      } else {
-        this.markers$.next({})
-      }
-    })
-   }
+  constructor() {}
 
   getMarkers(): Observable<GeoJson> {
     return of(geojson)

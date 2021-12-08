@@ -14,7 +14,6 @@ body {
 }
 
 .marker {
- 
   background-size: cover;
   width: 45px;
   height: 61px;
@@ -25,6 +24,16 @@ body {
   background-image: url("./assets/mapbox-icon-plastic.png");
 }
 
-.Feature {
-  background-image: url("./assets/mapbox-icon.png");
+.metal {
+  background-image: url("./assets/mapbox-icon-metal.png");
+}
+
+.mapboxgl-popup {
+
+  
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  border: 1px solid #6B8C21;
 }

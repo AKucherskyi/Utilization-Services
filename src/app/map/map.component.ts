@@ -1,4 +1,4 @@
-import { MarkerService } from './../services/marker.service';
+import { MarkerService, TypeOfWaste } from './../services/marker.service';
 import { environment } from '../../environments/environment';
 import { Component, Input, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
@@ -45,30 +45,36 @@ export class MapComponent implements OnInit {
         el.classList.add(feature.type)
         new mapboxgl.Marker(el)
           .setLngLat(<mapboxgl.LngLatLike>feature.geometry.coordinates)
+          .setPopup(
+            new mapboxgl.Popup({ offset: 25 }) // add popups
+              .setHTML(
+                `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>
+                <h4>${feature.properties.adress}</h4>`
+              )
+          )
           .addTo(this.map);
       }
     }
 
-    this.markerService.plastic$.subscribe((value) => {
-      console.log(value);
+    this.markerService.plastic$.subscribe(([type, value]) => {
       if (value) {
-        this.show()
+        this.show(type)
       } else {
-        this.hide()
+        this.hide(type)
       }
     });
   }
 
   
-  hide() {
-    let markers = document.getElementsByClassName('plastic');
+  hide(type: TypeOfWaste) {
+    let markers = document.getElementsByClassName(type);
     for (let i = 0; i < markers.length; i++) {
       (<HTMLElement>markers[i]).style.visibility = 'hidden';
     }
   }
 
-  show() {
-    let markers = document.getElementsByClassName('plastic');
+  show(type: TypeOfWaste) {
+    let markers = document.getElementsByClassName(type);
     for (let i = 0; i < markers.length; i++) {
       (<HTMLElement>markers[i]).style.visibility = 'visible';
     }

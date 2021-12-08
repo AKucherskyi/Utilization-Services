@@ -1,8 +1,8 @@
 .container {
   position: absolute;
-  left: 10%;
+  left: 6%;
   top: 131px;
-  padding: 45px 80px 60px 60px;
+  padding: 0 80px 60px 50px;
   background: #ffffff;
   border: 1px solid #8d8b88;
   box-sizing: border-box;
@@ -16,5 +16,9 @@
           margin-left: 5px;
       }
   }
+}
+
+p {
+  margin-top: 30px;
 }
 

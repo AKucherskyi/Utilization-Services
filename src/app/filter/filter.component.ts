@@ -1,4 +1,4 @@
-import { MarkerService } from './../services/marker.service';
+import { MarkerService, TypeOfWaste } from './../services/marker.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,14 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent implements OnInit {
-  plastic!: boolean
+  plastic: boolean = true
+  metal: boolean = true
 
   constructor(private markerService: MarkerService) { }
 
   ngOnInit(): void {
   }
 
-  onToggle () {
-    this.markerService.plastic$.next(this.plastic)
+  onToggle (type: TypeOfWaste) {
+    this.markerService.plastic$.next([type, this[type]])
   }
 }
