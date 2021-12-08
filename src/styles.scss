@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'RedRose';
+    src: url(assets/fonts/Red_Rose/static/RedRose-Light.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url(assets/fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+  }
+
+body {
+    margin: 0;
+    font-family: 'RedRose', Arial, Helvetica, sans-serif;
+}
+
+.marker {
+    background-image: url('./assets/mapbox-icon.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
