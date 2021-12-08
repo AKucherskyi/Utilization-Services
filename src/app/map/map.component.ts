@@ -1,6 +1,8 @@
+import { MarkerService } from './../services/marker.service';
 import { environment } from '../../environments/environment';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
+import { GeoJson } from '../shared/interfaces';
 
 @Component({
   selector: 'app-map',
@@ -13,61 +15,62 @@ export class MapComponent implements OnInit {
   lat = 59.94;
   lng = 30.32;
 
-  geojson = {
-    type: 'FeatureCollection',
-    features: [
-      {
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [30.32,59.94 ]
-        },
-        properties: {
-          title: 'Mapbox',
-          description: 'Washington, D.C.'
-        }
-      },
-      {
-        type: 'Feature',
-        geometry: {
-          type: 'Point',
-          coordinates: [30.32, 59.84]
-        },
-        properties: {
-          title: 'Mapbox',
-          description: 'San Francisco, California'
-        }
-      }
-    ]
-  };
 
-  constructor() {}
+  geojson!: GeoJson;
 
+  constructor(private markerService: MarkerService) {}
 
   ngOnInit() {
     (mapboxgl as any).accessToken = environment.mapbox.accessToken;
     this.map = new mapboxgl.Map({
       container: 'map',
       style: this.style,
-      zoom: 13,
+      zoom: 11,
       center: [this.lng, this.lat],
     });
 
-    
     // Add map controls
     this.map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
-  
-    for (const feature of this.geojson.features) {
-      // create a HTML element for each feature
-      const el = document.createElement('div');
-      el.className = 'marker';
-    console.log(el);
     
-      // make a marker for each feature and add to the map
-      new mapboxgl.Marker(el).setLngLat(<mapboxgl.LngLatLike>feature.geometry.coordinates).addTo(this.map);
+
+    this.markerService.getMarkers().subscribe((geojson) => {
+      this.geojson = geojson
+    })
+
+    if (this.geojson.features) {
+      for (const feature of this.geojson.features) {
+        const el = document.createElement('div');
+        el.className = 'marker';
+        el.classList.add(feature.type)
+        new mapboxgl.Marker(el)
+          .setLngLat(<mapboxgl.LngLatLike>feature.geometry.coordinates)
+          .addTo(this.map);
+      }
     }
+
+    this.markerService.plastic$.subscribe((value) => {
+      console.log(value);
+      if (value) {
+        this.show()
+      } else {
+        this.hide()
+      }
+    });
   }
 
   
+  hide() {
+    let markers = document.getElementsByClassName('plastic');
+    for (let i = 0; i < markers.length; i++) {
+      (<HTMLElement>markers[i]).style.visibility = 'hidden';
+    }
+  }
+
+  show() {
+    let markers = document.getElementsByClassName('plastic');
+    for (let i = 0; i < markers.length; i++) {
+      (<HTMLElement>markers[i]).style.visibility = 'visible';
+    }
+  }
 }
