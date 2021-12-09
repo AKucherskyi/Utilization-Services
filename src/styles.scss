@@ -28,12 +28,45 @@ body {
   background-image: url("./assets/mapbox-icon-metal.png");
 }
 
-.mapboxgl-popup {
+.paper {
+  background-image: url("./assets/mapbox-icon-paper.png");
+}
 
-  
+.battery {
+  background-image: url("./assets/mapbox-icon-battery.png");
+}
+
+.glass {
+  background-image: url("./assets/mapbox-icon-glass.png");
+}
+
+.danger {
+  background-image: url("./assets/mapbox-icon-danger.png");
+}
+
+.mapboxgl-popup {
+  max-width: 300px !important;
 }
 
 .mapboxgl-popup-content {
-  text-align: center;
-  border: 1px solid #6B8C21;
+  text-align: left;
+  font-family: "Roboto";
+  font-weight: 700;
+  border: 2px solid #6B8C21;
+  padding: 0 30px;
+  p {
+    color:  #314506;
+    font-size: 14px;
+  }
+  h3 {
+    font-size: 17px;
+  }
+  h4 {
+    font-size: 12px;
+  }
+  
+  .options {
+    display: flex;
+    justify-content: space-between;
+  }
 }

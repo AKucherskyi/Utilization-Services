@@ -12,22 +12,22 @@
   </div>
 
   <div>
-    <input type="checkbox" id="paper" name="paper" />
+    <input type="checkbox" id="paper" name="paper" [(ngModel)]="paper" (change)="onToggle('paper')" />
     <label for="paper">Бумага</label>
   </div>
 
   <div>
-    <input type="checkbox" id="battery" name="battery" />
+    <input type="checkbox" id="battery" name="battery" [(ngModel)]="battery" (change)="onToggle('battery')"/>
     <label for="battery">Батарейки</label>
   </div>
 
   <div>
-    <input type="checkbox" id="glass" name="glass" />
+    <input type="checkbox" id="glass" name="glass" [(ngModel)]="glass" (change)="onToggle('glass')"/>
     <label for="glass">Стекло</label>
   </div>
 
   <div>
-    <input type="checkbox" id="danger" name="danger" />
+    <input type="checkbox" id="danger" name="danger" [(ngModel)]="danger" (change)="onToggle('danger')"/>
     <label for="danger">Опасные отходы</label>
   </div>
 

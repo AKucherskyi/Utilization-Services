@@ -15,7 +15,6 @@ export class MapComponent implements OnInit {
   lat = 59.94;
   lng = 30.32;
 
-
   geojson!: GeoJson;
 
   constructor(private markerService: MarkerService) {}
@@ -32,40 +31,43 @@ export class MapComponent implements OnInit {
     // Add map controls
     this.map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
-    
-
     this.markerService.getMarkers().subscribe((geojson) => {
-      this.geojson = geojson
-    })
+      this.geojson = geojson;
+    });
 
     if (this.geojson.features) {
       for (const feature of this.geojson.features) {
         const el = document.createElement('div');
         el.className = 'marker';
-        el.classList.add(feature.type)
+        el.classList.add(feature.type);
         new mapboxgl.Marker(el)
           .setLngLat(<mapboxgl.LngLatLike>feature.geometry.coordinates)
           .setPopup(
-            new mapboxgl.Popup({ offset: 25 }) // add popups
-              .setHTML(
-                `<h3>${feature.properties.title}</h3><p>${feature.properties.description}</p>
+            new mapboxgl.Popup({ offset: 25 }).setHTML(
+              `<h3>${feature.properties.title}</h3>
+                <div class="options">
+                <img src="../../assets/phone.png" width="29" height="29">
+                <img src="../../assets/letter.png" width="33" height="24"> 
+                <img src="../../assets/comments.png" width="34" height="29">
+                </div>
+                <p>${feature.properties.description}</p>
+                <h4>Бесплатно</h4>
                 <h4>${feature.properties.adress}</h4>`
-              )
+            )
           )
           .addTo(this.map);
       }
     }
 
-    this.markerService.plastic$.subscribe(([type, value]) => {
+    this.markerService.visibility$.subscribe(([type, value]) => {
       if (value) {
-        this.show(type)
+        this.show(type);
       } else {
-        this.hide(type)
+        this.hide(type);
       }
     });
   }
 
-  
   hide(type: TypeOfWaste) {
     let markers = document.getElementsByClassName(type);
     for (let i = 0; i < markers.length; i++) {

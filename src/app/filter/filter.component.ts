@@ -9,6 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class FilterComponent implements OnInit {
   plastic: boolean = true
   metal: boolean = true
+  paper: boolean = true
+  battery: boolean = true
+  glass: boolean = true
+  danger: boolean = true
 
   constructor(private markerService: MarkerService) { }
 
@@ -16,6 +20,6 @@ export class FilterComponent implements OnInit {
   }
 
   onToggle (type: TypeOfWaste) {
-    this.markerService.plastic$.next([type, this[type]])
+    this.markerService.visibility$.next([type, this[type]])
   }
 }
