@@ -1,63 +1,98 @@
 <div class="container">
-  <p>Тип отходов</p>
+  <p>Waste type</p>
 
   <div>
-    <input type="checkbox" id="plastic" name="plastic" [(ngModel)]="plastic" (change)="onToggle('plastic')"/>
-    <label for="plastic">Пластик</label>
+    <input
+      type="checkbox"
+      id="plastic"
+      name="plastic"
+      [(ngModel)]="plastic"
+      (change)="onToggle('plastic')"
+    />
+    <label for="plastic">Plastic</label>
   </div>
 
   <div>
-    <input type="checkbox" id="metal" name="metal" [(ngModel)]="metal" (change)="onToggle('metal')"/>
-    <label for="metal">Металл</label>
+    <input
+      type="checkbox"
+      id="metal"
+      name="metal"
+      [(ngModel)]="metal"
+      (change)="onToggle('metal')"
+    />
+    <label for="metal">Metal</label>
   </div>
 
   <div>
-    <input type="checkbox" id="paper" name="paper" [(ngModel)]="paper" (change)="onToggle('paper')" />
-    <label for="paper">Бумага</label>
+    <input
+      type="checkbox"
+      id="paper"
+      name="paper"
+      [(ngModel)]="paper"
+      (change)="onToggle('paper')"
+    />
+    <label for="paper">Paper</label>
   </div>
 
   <div>
-    <input type="checkbox" id="battery" name="battery" [(ngModel)]="battery" (change)="onToggle('battery')"/>
-    <label for="battery">Батарейки</label>
+    <input
+      type="checkbox"
+      id="battery"
+      name="battery"
+      [(ngModel)]="battery"
+      (change)="onToggle('battery')"
+    />
+    <label for="battery">Batteries</label>
   </div>
 
   <div>
-    <input type="checkbox" id="glass" name="glass" [(ngModel)]="glass" (change)="onToggle('glass')"/>
-    <label for="glass">Стекло</label>
+    <input
+      type="checkbox"
+      id="glass"
+      name="glass"
+      [(ngModel)]="glass"
+      (change)="onToggle('glass')"
+    />
+    <label for="glass">Glass</label>
   </div>
 
   <div>
-    <input type="checkbox" id="danger" name="danger" [(ngModel)]="danger" (change)="onToggle('danger')"/>
-    <label for="danger">Опасные отходы</label>
+    <input
+      type="checkbox"
+      id="danger"
+      name="danger"
+      [(ngModel)]="danger"
+      (change)="onToggle('danger')"
+    />
+    <label for="danger">Hazardous waste</label>
   </div>
 
-  <p>Условия оплаты</p>
+  <p>Terms of payment</p>
 
   <div>
-    <input type="checkbox" id="plastic" name="plastic"/>
-    <label for="plastic">Бесплатно</label>
+    <input type="checkbox" id="plastic" name="plastic" />
+    <label for="plastic">Free</label>
   </div>
 
   <div>
     <input type="checkbox" id="metal" name="metal" />
-    <label for="metal">Платно</label>
+    <label for="metal">Paid</label>
   </div>
 
   <div>
     <input type="checkbox" id="paper" name="paper" />
-    <label for="paper">Прибыльно</label>
+    <label for="paper">Profitable</label>
   </div>
 
-  <p>Варианты доставки</p>
+  <p>Delivery options</p>
 
   <div>
-    <input type="checkbox" id="plastic" name="plastic"/>
-    <label for="plastic">Самовывоз</label>
+    <input type="checkbox" id="plastic" name="plastic" />
+    <label for="plastic">Pickup</label>
   </div>
 
   <div>
     <input type="checkbox" id="metal" name="metal" />
-    <label for="metal">Доставка</label>
+    <label for="metal"> Delivery</label>
   </div>
-
 </div>
