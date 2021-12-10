@@ -1,0 +1,60 @@
+.comments {
+  position: absolute;
+  min-width: 320px;
+  max-width: 360px;
+  min-height: 550px;
+  left: 6%;
+  top: 131px;
+  z-index: 3;
+  padding: 20px;
+  background: #ffffff;
+  border: 1px solid #8d8b88;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: "Roboto";
+}
+
+button {
+  background-color: #fff;
+}
+
+.title {
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rating-result {
+  width: 265px;
+  margin: 10px auto;
+}
+.rating-result span {
+  padding: 0;
+  font-size: 24px;
+  margin: 0 3px;
+  line-height: 1;
+  color: lightgrey;
+  text-shadow: 1px 1px #bbb;
+}
+.rating-result > span:before {
+  content: "★";
+}
+.rating-result > span.active {
+  color: gold;
+  text-shadow: 1px 1px #c60;
+}
+
+.options {
+  display: flex;
+  justify-content: start;
+  align-items: flex-end;
+  margin-top: 10px;
+  img {
+      margin-right: 24px;
+  }
+  img:hover {
+    transform: scale(1.2);
+    transition: transform 100ms;
+    cursor: pointer;
+  }
+}

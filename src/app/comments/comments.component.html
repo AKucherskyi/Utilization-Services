@@ -1,0 +1,45 @@
+<div class="comments" *ngIf="service">
+  <div class="title">
+    <h3>{{ service?.description }}</h3>
+    <button (click)="close.emit(null)">
+      <img src="../../assets/exit.png" alt="" />
+    </button>
+  </div>
+  <div class="rating-result">
+    <span [class.active]="service.rating_quantity > 1"></span>
+    <span [class.active]="service.rating_quantity > 1"></span>
+    <span [class.active]="service.rating_quantity > 1"></span>
+    <span [class.active]="service.rating_quantity > 1"></span>
+    <span [class.active]="service.rating_quantity > 1"></span>
+  </div>
+
+  <p>{{service.summary}}</p>
+
+  <div class="options">
+    <div>
+      <img
+        id="btn"
+        src="../../assets/phone.png"
+        width="24"
+        height="24"
+        
+      />
+    </div>
+    <div>
+      <img
+        src="../../assets/letter.png"
+        width="27"
+        height="20"
+       
+      />
+    </div>
+    <div>
+      <img
+        src="../../assets/net.png"
+        width="25"
+        height="24"
+       
+      />
+    </div>
+  </div>
+</div>

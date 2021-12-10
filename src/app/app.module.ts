@@ -5,15 +5,15 @@ import { MapComponent } from './map/map.component';
 import { HeaderComponent } from './header/header.component';
 import { FilterComponent } from './filter/filter.component';
 import { FormsModule } from '@angular/forms';
-import { TaxiComponent } from 'src/app/taxi/taxi.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { TaxiPageModule } from 'src/app/pages/taxiPage.module';
-import { TaxiPageComponent } from 'src/app/pages/taxi/taxiPage.component';
 import { MapPageComponent } from './pages/map-page/map-page.component';
 import { RulesPageComponent } from './pages/rules-page/rules-page.component';
 import { RulesComponent } from './rules/rules.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CommentsComponent } from './comments/comments.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,9 @@ import { RulesComponent } from './rules/rules.component';
     FilterComponent,
     MapPageComponent,
     RulesPageComponent,
-    RulesComponent
+    RulesComponent,
+    CommentsComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { RulesComponent } from './rules/rules.component';
     FormsModule,
     RouterModule,
     AppRoutingModule,
-    TaxiPageModule
+    TaxiPageModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

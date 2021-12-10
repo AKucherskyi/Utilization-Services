@@ -1,6 +1,9 @@
-import { GeoJson } from './../shared/interfaces';
+import { environment } from './../../environments/environment';
+import { GeoJson, Service } from './../shared/interfaces';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 export type TypeOfWaste = 'plastic' | 'metal' | 'paper' | 'battery' | 'glass' | 'danger'
 
@@ -215,9 +218,35 @@ export class MarkerService {
   geojson!: GeoJson
   
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  getMarkers(): Observable<GeoJson> {
-    return of(geojson)
+  getMarkers(): Observable<any> {
+    return this.http.get<any[]>(`${environment.serverUrl}/api/v1/services`).pipe(
+    map((response) => {
+      return ({
+        type: 'FeatureCollection',
+        features: response.map((obj) => ({
+          type: obj.type,
+          geometry: {
+            type: 'Point',
+            coordinates: obj.coordinates.map((x: string) => parseFloat(x))
+          },
+          properties: {
+            title: obj.description,
+            description: obj.summary,
+            adress: '',
+            rating: obj.rating_quantity,
+            id: obj.service_id
+          }
+        }))
+      })
+      
+    })
+    )
+    // return of(geojson)
+  }
+
+  getService(id: string) {
+    return this.http.get<Service>(`${environment.serverUrl}/api/v1/services/${id}`)
   }
 }
