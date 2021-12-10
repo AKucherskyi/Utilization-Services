@@ -212,13 +212,15 @@ const geojson = {
   providedIn: 'root'
 })
 export class MarkerService {
-  
+
+  currentServiceId$: Subject<string> = new Subject()
   visibility$ = new Subject<[any, any]>()
   markers$ = new BehaviorSubject({})
   geojson!: GeoJson
   
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   getMarkers(): Observable<any> {
     return this.http.get<any[]>(`${environment.serverUrl}/api/v1/services`).pipe(

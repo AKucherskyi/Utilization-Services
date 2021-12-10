@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class MapComponent implements OnInit {
   showComments: boolean = false
-  currentServiceId: Subject<string> = new Subject()
+ 
   map!: mapboxgl.Map;
   style = 'mapbox://styles/mapbox/streets-v11';
   lat = 59.94;
@@ -122,7 +122,9 @@ export class MapComponent implements OnInit {
   }
 
   private showServiceComments(id: string) {
-    this.currentServiceId.next(id)
-    this.showComments = true 
+  
+    this.markerService.currentServiceId$.next(id)
+    this.showComments = true
+    
   }
 }

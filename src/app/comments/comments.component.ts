@@ -1,5 +1,6 @@
-import { switchMap } from 'rxjs/operators';
+import { concatMap, switchMap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { MarkerService } from './../services/marker.service';
 import { Service } from './../shared/interfaces';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
@@ -13,25 +14,18 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class CommentsComponent implements OnInit {
   service!: Service
 
-  @Input() id!: Subject<string>
   @Output() close: EventEmitter<any> = new EventEmitter()
 
   constructor(private markerService: MarkerService) { }
 
   ngOnInit(): void {
 
-    this.id.pipe(
+    this.markerService.currentServiceId$.pipe(
       switchMap((id) => this.markerService.getService(id))
     )
     .subscribe((service) => {
       this.service = service
-    })
-    
-    // this.markerService.getService(this.id).subscribe((service) => {
-    //   this.service = service
-    // })
-
-    
+    })    
   }
 
 }

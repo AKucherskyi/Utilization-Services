@@ -1,6 +1,6 @@
 <div class="comments" *ngIf="service">
   <div class="title">
-    <h3>{{ service?.description }}</h3>
+    <h3>{{ service.description }}</h3>
     <button (click)="close.emit(null)">
       <img src="../../assets/exit.png" alt="" />
     </button>
@@ -22,7 +22,6 @@
         src="../../assets/phone.png"
         width="24"
         height="24"
-        
       />
     </div>
     <div>
@@ -30,7 +29,6 @@
         src="../../assets/letter.png"
         width="27"
         height="20"
-       
       />
     </div>
     <div>
@@ -38,7 +36,6 @@
         src="../../assets/net.png"
         width="25"
         height="24"
-       
       />
     </div>
   </div>
