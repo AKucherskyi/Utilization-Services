@@ -11,6 +11,15 @@ header {
 a {
     text-decoration: none;
     color: black;
+    font-size: 18px;
+}
+
+
+.active-link {
+    background-color: #EEC73C;
+    &:hover {
+        background-color: #eec73cb2;
+    }
 }
 
 .container {
@@ -42,8 +51,18 @@ a {
     ul {
         list-style: none;
         display: flex;
+        align-items: center;
         li {
-            margin-right:  70px;
+            margin-right:  60px;
+           a {
+            padding: 8px 16px;
+            border-radius: 4px;
+            &:hover {
+                background-color: rgb(233, 233, 233);
+                color: #314506;
+                transition: all 100ms;
+            }
+           }
         }
     }
 }

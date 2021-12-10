@@ -16,7 +16,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     },
     {
@@ -28,7 +29,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     },
     {
@@ -40,7 +42,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     },
     {
@@ -52,7 +55,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     },
     {
@@ -64,7 +68,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     },
     {
@@ -76,7 +81,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     },
     {
@@ -88,7 +94,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     },
     {
@@ -100,7 +107,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     },
     {
@@ -112,7 +120,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     },
     {
@@ -124,7 +133,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     },
     {
@@ -136,7 +146,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     },
     {
@@ -148,7 +159,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     },
     {
@@ -160,7 +172,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     },
     {
@@ -172,7 +185,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     },
     {
@@ -184,7 +198,8 @@ const geojson = {
       properties: {
         title: '«Раздельный сбор»',
         description: 'пластик, металл, макулатура',
-        adress: 'Английский проспект, 26'
+        adress: 'Английский проспект, 26',
+        rating: 4
       }
     }
   ]

@@ -1,6 +1,6 @@
 <header>
   <div class="container">
-    <a href="#"
+    <a routerLink="map"
       ><div class="logo">
         <span class="logo__text">ECO</span>
         <img src="../../assets/logo.png" alt="logo" class="logo__img" /></div
@@ -8,12 +8,13 @@
 
     <div class="navigation">
       <ul>
-        <li><a href="#">Eco-taxi order</a></li>
-        <li><a href="#">Hand over raw materials</a></li>
-        <li><a href="#"> Sorting rules</a></li>
+        <li><a routerLink="blog" routerLinkActive="active-link">Blog</a></li>
+        <li><a routerLink="materials" routerLinkActive="active-link">Hand over raw materials</a></li>
+        <li><a routerLink="rules" routerLinkActive="active-link">Sorting rules</a></li>
+        <li><a routerLink="taxi" routerLinkActive="active-link">Eco-taxi order</a></li>
       </ul>
 
-      <a href="#">
+      <a routerLink="map">
         <img src="../../assets/home.png" alt="home" />
       </a>
     </div>

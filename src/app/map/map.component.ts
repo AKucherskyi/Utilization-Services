@@ -45,18 +45,35 @@ export class MapComponent implements OnInit {
           .setPopup(
             new mapboxgl.Popup({ offset: 25 }).setHTML(
               `<h3>${feature.properties.title}</h3>
+              <div class="rating-result">
+                <span ${feature.properties.rating > 0 ? 'class="active"' : ''}></span>	
+                <span ${feature.properties.rating > 1 ? 'class="active"' : ''}></span>    
+                <span ${feature.properties.rating > 2 ? 'class="active"' : ''}></span>  
+                <span ${feature.properties.rating > 3 ? 'class="active"' : ''}></span>    
+                <span ${feature.properties.rating > 4 ? 'class="active"' : ''}></span>
+               </div>
                 <div class="options">
-                <img src="../../assets/phone.png" width="29" height="29">
-                <img src="../../assets/letter.png" width="33" height="24"> 
-                <img src="../../assets/comments.png" width="34" height="29">
+                <div>
+                  <img id="btn" src="../../assets/phone.png" width="32" height="31" />
+                  <small>Call</small>
+                </div>
+                <div>
+                  <img src="../../assets/letter.png" width="35" height="26" />
+                  <small>Message</small>
+                </div>
+                <div>
+                  <img src="../../assets/comments.png" width="34" height="29" />
+                  <small>Comments</small>
+                </div>
                 </div>
                 <p>${feature.properties.description}</p>
                 <h4>Бесплатно</h4>
-                <h4>${feature.properties.adress}</h4>`
+                <p>${feature.properties.adress}</p>`
             )
           )
           .addTo(this.map);
       }
+      
     }
 
     this.markerService.visibility$.subscribe(([type, value]) => {
@@ -66,6 +83,11 @@ export class MapComponent implements OnInit {
         this.hide(type);
       }
     });
+  }
+
+  log() {
+    console.log('Click');
+    
   }
 
   hide(type: TypeOfWaste) {
