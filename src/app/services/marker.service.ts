@@ -22,7 +22,7 @@ export class MarkerService {
   }
 
   getMarkers(): Observable<any> {
-    return this.http.get<any[]>(`${environment.serverUrl}/api/v1/services`).pipe(
+    return this.http.get<Service[]>(`${environment.serverUrl}/api/v1/services`).pipe(
     map((response) => {
       return ({
         type: 'FeatureCollection',
@@ -30,7 +30,7 @@ export class MarkerService {
           type: obj.type.toLowerCase(),
           geometry: {
             type: 'Point',
-            coordinates: obj.coordinates.map((x: string) => parseFloat(x))
+            coordinates: obj.coordinates
           },
           properties: {
             title: obj.summary,

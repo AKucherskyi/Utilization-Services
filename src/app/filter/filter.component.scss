@@ -8,19 +8,110 @@
   box-sizing: border-box;
   border-radius: 5px;
   font-family: "Roboto";
-  &>div {
-      margin-top: 5px;
-      line-height: 22px;
-      color: #3E3E3E;
+  & > div {
+    margin-top: 5px;
+    line-height: 22px;
+    color: #3e3e3e;
+    display: flex;
+    align-items: center;
 
-      label {
-          margin-left: 5px;
-      }
+    span {
+      margin-left: 10px;
+    }
+
+    label {
+      margin-left: 5px;
+    }
   }
 }
 
 p {
   margin-top: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
 
+input[type="checkbox"] {
+  display: none;
+}
+
+input + label {
+  display: inline-block;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-position: center;
+  background-size: cover;
+}
+
+input + label[for="metal"] {
+  background-image: url(../../assets/metal.png);
+}
+
+input + label[for="plastic"] {
+  background-image: url(../../assets/plastic.png);
+}
+
+input + label[for="paper"] {
+  background-image: url(../../assets/paper.png);
+}
+
+input + label[for="organic"] {
+  background-image: url(../../assets/organic.png);
+}
+
+input + label[for="ewaste"] {
+  background-image: url(../../assets/e-waste.png);
+}
+
+input + label[for="lightbulbs"] {
+  background-image: url(../../assets/light-bulbs.png);
+}
+
+input + label[for="clothes"] {
+  background-image: url(../../assets/clothes.png);
+}
+
+input + label[for="glass"] {
+  background-image: url(../../assets/glass.png);
+}
+
+input + label[for="batteries"] {
+  background-image: url(../../assets/batteries.png);
+}
+
+input[type="checkbox"]:checked + label[for="paper"] {
+  background-image: url(../../assets/mapbox-icon-paper.png);
+}
+
+input[type="checkbox"]:checked + label[for="plastic"] {
+  background-image: url(../../assets/mapbox-icon-plastic.png);
+}
+
+input[type="checkbox"]:checked + label[for="metal"] {
+  background-image: url(../../assets/mapbox-icon-metal.png);
+}
+
+input[type="checkbox"]:checked + label[for="batteries"] {
+  background-image: url(../../assets/mapbox-icon-batteries.png);
+}
+
+input[type="checkbox"]:checked + label[for="glass"] {
+  background-image: url(../../assets/mapbox-icon-glass.png);
+}
+
+input[type="checkbox"]:checked + label[for="clothes"] {
+  background-image: url(../../assets/mapbox-icon-clothes.png);
+}
+
+input[type="checkbox"]:checked + label[for="lightbulbs"] {
+  background-image: url(../../assets/mapbox-icon-light-bulbs.png);
+}
+
+input[type="checkbox"]:checked + label[for="ewaste"] {
+  background-image: url(../../assets/mapbox-icon-e-waste.png);
+}
+
+input[type="checkbox"]:checked + label[for="organic"] {
+  background-image: url(../../assets/mapbox-icon-organic.png);
+}

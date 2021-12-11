@@ -104,8 +104,9 @@ body {
 .marker {
   background-image: url("./assets/mapbox-icon-plastic.png");
   background-size: cover;
+  border-radius: 50%;
   width: 45px;
-  height: 61px;
+  height: 45px;
   cursor: pointer;
   &.plastic {
     background-image: url("./assets/mapbox-icon-plastic.png");
@@ -120,7 +121,7 @@ body {
   }
   
   &.batteries {
-    background-image: url("./assets/mapbox-icon-battery.png");
+    background-image: url("./assets/mapbox-icon-batteries.png");
   }
   
   &.glass {
@@ -136,7 +137,7 @@ body {
   }
 
   &.lightbulbs {
-    background-image: url("./assets/mapbox-icon-danger.png");
+    background-image: url("./assets/mapbox-icon-light-bulbs.png");
   }
 
   &.organic {

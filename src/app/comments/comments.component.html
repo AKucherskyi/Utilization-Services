@@ -1,4 +1,4 @@
-<div class="comments" *ngIf="service">
+<div class="comments" *ngIf="service" @enterAnimation>
   <div class="title">
     <h3>{{ service.summary }}</h3>
     <button (click)="close.emit(null)">

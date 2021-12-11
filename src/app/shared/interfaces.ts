@@ -13,6 +13,7 @@ export interface Service {
     summary: string,
     created_at: string,
     updated_at: string,
-    questions: string[],
-    comments: string[]
+    questions?: string[],
+    comments?: string[],
+    phone_number: string
 }

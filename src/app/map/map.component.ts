@@ -15,7 +15,7 @@ export class MapComponent implements OnInit {
   showComments: boolean = false
  
   map!: mapboxgl.Map;
-  style = 'mapbox://styles/mapbox/streets-v11';
+  style = 'mapbox://styles/mapbox/streets-v9';
   lat = 59.94;
   lng = 30.32;
 
