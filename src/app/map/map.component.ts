@@ -73,7 +73,9 @@ export class MapComponent implements OnInit {
       for (const feature of this.geojson.features) {
         const el = document.createElement('div');
         el.className = 'marker';
+        feature.type = feature.type.replace('-','')
         el.classList.add(feature.type);
+       
 
         const popupContent = document.createElement('div');
         popupContent.innerHTML = 
@@ -99,9 +101,9 @@ export class MapComponent implements OnInit {
                   <small>Comments</small>
                 </div>
                 </div>
-                <p>${feature.properties.description}</p>
-                <h4>Бесплатно</h4>
-                <p>${feature.properties.adress}</p>`
+                <p>${feature.properties.description.slice(0, 100) + '...'}</p>
+              
+                <h4>${feature.properties.adress}</h4>`
 
                 popupContent.addEventListener('click', (e) => {
                   const target = e.target as HTMLElement
@@ -111,9 +113,17 @@ export class MapComponent implements OnInit {
                   
                 })
 
-        let popup = new mapboxgl.Popup({offset: 25}).setDOMContent(popupContent); 
+        let popup = new mapboxgl.Popup({offset: 25, closeButton: false}).setDOMContent(popupContent); 
 
-        new mapboxgl.Marker(el)
+        let marker = new mapboxgl.Marker(el)
+
+        const markerDiv = marker.getElement();
+
+        markerDiv.addEventListener('mouseenter', () => marker.togglePopup());
+        markerDiv.addEventListener('mouseleave', () => marker.togglePopup());
+        markerDiv.addEventListener('click', () => this.showServiceComments(feature.properties.id));
+
+        marker
           .setLngLat(<mapboxgl.LngLatLike>feature.geometry.coordinates)
           .setPopup(popup)
           .addTo(this.map);

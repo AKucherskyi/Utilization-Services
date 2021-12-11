@@ -29,6 +29,11 @@
         box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
     }
+    select {
+        appearance: none;
+        background: url('../../assets/arrow.png') no-repeat right;
+    }
+    
 }
 
 .taxi-button {

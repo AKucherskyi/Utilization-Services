@@ -39,8 +39,8 @@
       type="checkbox"
       id="battery"
       name="battery"
-      [(ngModel)]="battery"
-      (change)="onToggle('battery')"
+      [(ngModel)]="batteries"
+      (change)="onToggle('batteries')"
     />
     <label for="battery">Batteries</label>
   </div>
@@ -59,15 +59,48 @@
   <div>
     <input
       type="checkbox"
-      id="danger"
-      name="danger"
-      [(ngModel)]="danger"
-      (change)="onToggle('danger')"
+      id="clothes"
+      name="clothes"
+      [(ngModel)]="clothes"
+      (change)="onToggle('clothes')"
     />
-    <label for="danger">Hazardous waste</label>
+    <label for="clothes">Clothes</label>
   </div>
 
-  <p>Terms of payment</p>
+  <div>
+    <input
+      type="checkbox"
+      id="lightBulbs"
+      name="lightBulbs"
+      [(ngModel)]="lightbulbs"
+      (change)="onToggle('lightbulbs')"
+    />
+    <label for="lightBulbs">Light-bulbs</label>
+  </div>
+
+  <div>
+    <input
+      type="checkbox"
+      id="eWaste"
+      name="eWaste"
+      [(ngModel)]="ewaste"
+      (change)="onToggle('ewaste')"
+    />
+    <label for="eWaste">E-Waste</label>
+  </div>
+
+  <div>
+    <input
+      type="checkbox"
+      id="organic"
+      name="organic"
+      [(ngModel)]="organic"
+      (change)="onToggle('organic')"
+    />
+    <label for="organic">Organic</label>
+  </div>
+
+  <!-- <p>Terms of payment</p>
 
   <div>
     <input type="checkbox" id="plastic" name="plastic" />
@@ -95,4 +128,5 @@
     <input type="checkbox" id="metal" name="metal" />
     <label for="metal"> Delivery</label>
   </div>
-</div>
+</div> -->
+

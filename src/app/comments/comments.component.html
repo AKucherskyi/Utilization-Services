@@ -1,19 +1,19 @@
 <div class="comments" *ngIf="service">
   <div class="title">
-    <h3>{{ service.description }}</h3>
+    <h3>{{ service.summary }}</h3>
     <button (click)="close.emit(null)">
       <img src="../../assets/exit.png" alt="" />
     </button>
   </div>
   <div class="rating-result">
+    <span [class.active]="service.rating_quantity > 0"></span>
     <span [class.active]="service.rating_quantity > 1"></span>
-    <span [class.active]="service.rating_quantity > 1"></span>
-    <span [class.active]="service.rating_quantity > 1"></span>
-    <span [class.active]="service.rating_quantity > 1"></span>
-    <span [class.active]="service.rating_quantity > 1"></span>
+    <span [class.active]="service.rating_quantity > 2"></span>
+    <span [class.active]="service.rating_quantity > 3"></span>
+    <span [class.active]="service.rating_quantity > 4"></span>
   </div>
 
-  <p>{{service.summary}}</p>
+  <p>{{service.description}}</p>
 
   <div class="options">
     <div>

@@ -102,38 +102,52 @@ body {
 }
 
 .marker {
+  background-image: url("./assets/mapbox-icon-plastic.png");
   background-size: cover;
   width: 45px;
   height: 61px;
   cursor: pointer;
+  &.plastic {
+    background-image: url("./assets/mapbox-icon-plastic.png");
+  }
+  
+  &.metal {
+    background-image: url("./assets/mapbox-icon-metal.png");
+  }
+  
+  &.paper {
+    background-image: url("./assets/mapbox-icon-paper.png");
+  }
+  
+  &.batteries {
+    background-image: url("./assets/mapbox-icon-battery.png");
+  }
+  
+  &.glass {
+    background-image: url("./assets/mapbox-icon-glass.png");
+  }
+  
+  &.clothes {
+    background-image: url("./assets/mapbox-icon-clothes.png");
+  }
+
+  &.ewaste {
+    background-image: url("./assets/mapbox-icon-e-waste.png");
+  }
+
+  &.lightbulbs {
+    background-image: url("./assets/mapbox-icon-danger.png");
+  }
+
+  &.organic {
+    background-image: url("./assets/mapbox-icon-organic.png");
+  }
 }
 
-.plastic {
-  background-image: url("./assets/mapbox-icon-plastic.png");
-}
 
-.metal {
-  background-image: url("./assets/mapbox-icon-metal.png");
-}
-
-.paper {
-  background-image: url("./assets/mapbox-icon-paper.png");
-}
-
-.battery {
-  background-image: url("./assets/mapbox-icon-battery.png");
-}
-
-.glass {
-  background-image: url("./assets/mapbox-icon-glass.png");
-}
-
-.danger {
-  background-image: url("./assets/mapbox-icon-danger.png");
-}
 
 .mapboxgl-popup {
-  max-width: 300px !important;
+  max-width: 340px !important;
 }
 
 .mapboxgl-popup-content {
@@ -143,7 +157,7 @@ body {
   border: 2px solid #6b8c21;
   padding: 20px;
   p {
-    color: #314506;
+    color: #000000;
     font-size: 14px;
     margin-top: 8px;
   }
@@ -162,7 +176,9 @@ body {
   }
 
   .options {
-    display: flex;
+
+
+    display: none;
     justify-content: space-between;
     align-items: flex-end;
     margin-top: 8px;

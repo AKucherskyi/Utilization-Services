@@ -10,9 +10,12 @@ export class FilterComponent implements OnInit {
   plastic: boolean = true
   metal: boolean = true
   paper: boolean = true
-  battery: boolean = true
+  batteries: boolean = true
   glass: boolean = true
-  danger: boolean = true
+  clothes: boolean = true
+  lightbulbs: boolean = true
+  ewaste: boolean = true
+  organic: boolean = true
 
   constructor(private markerService: MarkerService) { }
 
