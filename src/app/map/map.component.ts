@@ -42,8 +42,7 @@ export class MapComponent implements OnInit {
       this.renderMarkers()
     });
 
-    
-
+  
     this.markerService.visibility$.subscribe(([type, value]) => {
       if (value) {
         this.show(type);
@@ -53,7 +52,7 @@ export class MapComponent implements OnInit {
     });
   }
 
-
+  
   hide(type: TypeOfWaste) {
     let markers = document.getElementsByClassName(type);
     for (let i = 0; i < markers.length; i++) {

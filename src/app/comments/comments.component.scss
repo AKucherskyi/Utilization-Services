@@ -24,6 +24,12 @@ button {
   justify-content: space-between;
 }
 
+.types-of-sort {
+  color: #314506;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
 .rating-result {
   width: 265px;
   margin: 10px auto;
@@ -48,13 +54,51 @@ button {
   display: flex;
   justify-content: start;
   align-items: flex-end;
-  margin-top: 10px;
+  margin: 10px 0;
   img {
-      margin-right: 24px;
+    margin-right: 24px;
   }
   img:hover {
     transform: scale(1.2);
     transition: transform 100ms;
     cursor: pointer;
   }
+}
+
+.comments {
+  h4 {
+    font-size: 24px;
+    padding: 15px 0;
+  }
+
+  .comment {
+    border: 1px solid #8d8b88;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+  }
+}
+
+.comments-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px;
+}
+
+.comment-send {
+  background: rgba(255, 255, 255, 0.65);
+  box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  width: 100%;
+  padding: 5px 15px;
+
+  div {
+    margin-bottom: 10px;
+  }
+}
+
+.comment-send-header {
+  display: flex;
+  justify-content: space-between;
 }
