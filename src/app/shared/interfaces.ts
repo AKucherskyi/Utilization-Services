@@ -17,3 +17,8 @@ export interface Service {
     comments?: string[],
     phone_number: string
 }
+
+export interface Comment {
+    service_id: string
+    content: string
+}

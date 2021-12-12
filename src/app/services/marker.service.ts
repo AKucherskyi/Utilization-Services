@@ -50,4 +50,10 @@ export class MarkerService {
   getService(id: string) {
     return this.http.get<Service>(`${environment.serverUrl}/api/v1/services/${id}`)
   }
+
+  postComment(service_id: string, content: string): Observable<any> {
+    console.log(service_id, content);
+    
+    return this.http.post<Comment>(`${environment.serverUrl}/api/v1/comments`, {service_id, content: 'sxsxsx'})
+  }
 }

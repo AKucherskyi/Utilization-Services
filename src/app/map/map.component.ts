@@ -5,6 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { GeoJson } from '../shared/interfaces';
 import { Router } from '@angular/router';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-map',

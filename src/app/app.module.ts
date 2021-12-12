@@ -14,6 +14,7 @@ import { RulesPageComponent } from './pages/rules-page/rules-page.component';
 import { RulesComponent } from './rules/rules.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommentsComponent } from './comments/comments.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CommentsComponent } from './comments/comments.component';
     RouterModule,
     AppRoutingModule,
     TaxiPageModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
-<div class="comments" *ngIf="service" @enterAnimation>
+<div class="comments" *ngIf="service" [@enterAnimation]>
   <div class="title">
     <h3>{{ service.summary }}</h3>
-    <button (click)="close.emit(null)">
+    <button (click)="service = null; close.emit(null)">
       <img src="../../assets/exit.png" alt="" />
     </button>
   </div>
@@ -48,7 +48,7 @@
         <div class="comment-send-header">
           <div class="star"></div>
           <button>
-            <img src="../../assets/send-comment .png">
+            <img src="../../assets/send-comment .png" (click)="sendComment()">
           </button>
         </div>
         <div>

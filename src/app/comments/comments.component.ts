@@ -14,16 +14,18 @@ import { trigger, transition, style, animate } from '@angular/animations';
   animations: [trigger('enterAnimation', [
     transition(':enter', [
       style({ transform: 'translateX(-100%)', opacity: 0 }),
-      animate('250ms', style({ transform: 'translateX(0)', opacity: 1 })),
+      animate('350ms', style({ transform: 'translateX(0)', opacity: 1 })),
     ]),
     transition(':leave', [
       style({ opacity: 1 }),
-      animate('150ms', style({ opacity: 0 })),
+      animate('450ms', style({ opacity: 0 })),
     ]),
   ])]
+  
 })
 export class CommentsComponent implements OnInit {
-  service!: Service
+  service!: Service | null
+  newComment!: string
 
   @Output() close: EventEmitter<any> = new EventEmitter()
 
@@ -37,6 +39,15 @@ export class CommentsComponent implements OnInit {
     .subscribe((service) => {
       this.service = service
     })    
+  }
+
+  sendComment() {
+    if (this.service) {
+      this.markerService.postComment(this.service.service_id, this.newComment).subscribe(() => {
+      this.newComment = ''
+    })
+    }
+    
   }
 
 }
