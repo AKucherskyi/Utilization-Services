@@ -11,6 +11,7 @@
   box-sizing: border-box;
   border-radius: 5px;
   font-family: "Roboto";
+  word-wrap: break-word;
 }
 
 button {
@@ -31,7 +32,7 @@ button {
 
 .rating-result {
   width: 265px;
-  margin: 10px auto;
+  margin: 10px 0;
 }
 .rating-result span {
   padding: 0;
@@ -51,7 +52,7 @@ button {
 
 .options {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: flex-end;
   margin: 10px 0;
   img {
@@ -86,7 +87,7 @@ button {
   justify-content: space-between;
   height: 300px;
   .comments-list {
-    overflow: scroll;
+    overflow: auto;
   }
   .comments-list::-webkit-scrollbar {
     width: 0;
@@ -99,10 +100,14 @@ button {
   box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   width: 100%;
-  padding: 5px 15px;
+  padding: 5px 12px 10px 12px;
 
-  div {
-    margin-bottom: 10px;
+  // div {
+  //   margin-bottom: 10px;
+  // }
+
+  .star {
+    margin: 0;
   }
 
   input {
@@ -113,4 +118,46 @@ button {
 .comment-send-header {
   display: flex;
   justify-content: space-between;
+}
+
+
+.rating-area {
+	overflow: hidden;
+
+	margin: 0 auto;
+}
+.rating-area:not(:checked) > input {
+	display: none;
+}
+.rating-area:not(:checked) > label {
+	float: right;
+	width: 26px;
+	padding: 0;
+	cursor: pointer;
+	font-size: 24px;
+	line-height: 32px;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+}
+.rating-area:not(:checked) > label:before {
+	content: '★';
+}
+.rating-area > input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px #c60;
+}
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+	color: gold;
+}
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px goldenrod;
+}
+.rate-area > label:active {
+	position: relative;
 }

@@ -13,7 +13,7 @@
     <span [class.active]="service.rating_quantity > 4"></span>
   </div>
 
-  <p class="types-of-sort">plastic, metal, waste, paper</p>
+  <p class="types-of-sort">{{service.type}}</p>
   <div class="options">
     <div>
 
@@ -47,7 +47,22 @@
     <form [formGroup]="form">
       <div class="comment-send">
         <div class="comment-send-header">
-          <div class="star"></div>
+          <div class="star">
+
+            <div class="rating-area">
+              <input type="radio" id="star-5" name="rating" value="5">
+              <label for="star-5" title="Оценка «5»"></label>	
+              <input type="radio" id="star-4" name="rating" value="4">
+              <label for="star-4" title="Оценка «4»"></label>    
+              <input type="radio" id="star-3" name="rating" value="3">
+              <label for="star-3" title="Оценка «3»"></label>  
+              <input type="radio" id="star-2" name="rating" value="2">
+              <label for="star-2" title="Оценка «2»"></label>    
+              <input type="radio" id="star-1" name="rating" value="1">
+              <label for="star-1" title="Оценка «1»"></label>
+            </div>
+
+          </div>
           <button>
             <img src="../../assets/send-comment .png" (click)="sendComment()">
           </button>
