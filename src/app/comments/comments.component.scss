@@ -2,7 +2,6 @@
   position: absolute;
   min-width: 320px;
   max-width: 360px;
-  min-height: 550px;
   left: 6%;
   top: 131px;
   z-index: 3;
@@ -85,7 +84,7 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 350px;
+  height: 300px;
   .comments-list {
     overflow: scroll;
   }

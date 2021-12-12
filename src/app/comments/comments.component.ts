@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { MarkerService } from './../services/marker.service';
 import { Service, Comment } from './../shared/interfaces';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -26,7 +26,10 @@ export class CommentsComponent implements OnInit {
 
   @Output() close: EventEmitter<any> = new EventEmitter()
 
+  @ViewChild('list') list!: ElementRef;
+
   constructor(private markerService: MarkerService) { }
+ 
 
   ngOnInit(): void {
 
@@ -45,8 +48,12 @@ export class CommentsComponent implements OnInit {
   sendComment() {
     if (this.service) {
       this.markerService.postComment(this.service.service_id, this.form.value.content).subscribe((comment: Comment) => {
+        this.form.reset();
       this.service?.comments?.push(comment)  
-      this.form.reset();
+      this.list.nativeElement.scrollTop = 9999
+      console.log(this.list.nativeElement);
+      
+      
     })
     }
     
