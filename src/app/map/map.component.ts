@@ -87,21 +87,8 @@ export class MapComponent implements OnInit {
                 <span ${feature.properties.rating > 3 ? 'class="active"' : ''}></span>    
                 <span ${feature.properties.rating > 4 ? 'class="active"' : ''}></span>
                </div>
-                <div class="options">
-                <div>
-                  <img id="btn" src="../../assets/phone.png" width="32" height="31" data-id="${feature.properties.id}" />
-                  <small>Call</small>
-                </div>
-                <div>
-                  <img src="../../assets/letter.png" width="35" height="26" data-id="${feature.properties.id}"/>
-                  <small>Message</small>
-                </div>
-                <div>
-                  <img src="../../assets/comments.png" width="34" height="29" data-id="${feature.properties.id}"/>
-                  <small>Comments</small>
-                </div>
-                </div>
-                <p>${feature.properties.description.slice(0, 100) + '...'}</p>
+                
+                <p>${feature.properties.description}</p>
               
                 <h4>${feature.properties.adress}</h4>`
 
