@@ -63,12 +63,12 @@
             </div>
 
           </div>
-          <button>
-            <img src="../../assets/send-comment .png" (click)="sendComment()">
+          <button (click)="sendComment()" [disabled]="!form.valid">
+            <img src="../../assets/send-comment .png">
           </button>
         </div>
         <div>
-          <input placeholder="Write comment..." formControlName="content">
+          <textarea  placeholder="Write comment..." formControlName="content"> </textarea>
         </div>
       </div>
       

@@ -16,7 +16,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-comments',
@@ -49,7 +49,7 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      content: new FormControl(''),
+      content: new FormControl('', [Validators.required, Validators.minLength(2)]),
     });
 
     this.markerService.currentServiceId$
