@@ -36,14 +36,15 @@
 
 
   <div class="comments-block">
+    <h4>Comments</h4>
     <div class="comments-list">
-      <h4>Comments</h4>
-      <div class="comment">
-        Равным образом рамки и место обучения кадров позволяет оценить значение
+      
+      <div class="comment" *ngFor="let comment of service.comments">
+        {{comment.content}}
       </div>
     </div>
 
-    <form>
+    <form [formGroup]="form">
       <div class="comment-send">
         <div class="comment-send-header">
           <div class="star"></div>
@@ -52,7 +53,7 @@
           </button>
         </div>
         <div>
-          <input placeholder="Write comment...">
+          <input placeholder="Write comment..." formControlName="content">
         </div>
       </div>
       

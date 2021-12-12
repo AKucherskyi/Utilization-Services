@@ -76,6 +76,7 @@ button {
     border-radius: 5px;
     padding: 10px 15px;
     margin-bottom: 15px;
+    font-size: 14px;
   }
 }
 
@@ -84,7 +85,14 @@ button {
   flex-direction: column;
   justify-content: space-between;
   height: 400px;
+  .comments-list {
+    overflow: scroll;
+  }
+  .comments-list::-webkit-scrollbar {
+    width: 0;
+  }
 }
+
 
 .comment-send {
   background: rgba(255, 255, 255, 0.65);
@@ -95,6 +103,10 @@ button {
 
   div {
     margin-bottom: 10px;
+  }
+
+  input {
+    width: 100%;
   }
 }
 

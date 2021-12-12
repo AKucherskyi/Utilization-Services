@@ -2,9 +2,10 @@ import { concatMap, switchMap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { MarkerService } from './../services/marker.service';
-import { Service } from './../shared/interfaces';
+import { Service, Comment } from './../shared/interfaces';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -15,23 +16,23 @@ import { trigger, transition, style, animate } from '@angular/animations';
     transition(':enter', [
       style({ transform: 'translateX(-100%)', opacity: 0 }),
       animate('350ms', style({ transform: 'translateX(0)', opacity: 1 })),
-    ]),
-    transition(':leave', [
-      style({ opacity: 1 }),
-      animate('450ms', style({ opacity: 0 })),
-    ]),
+    ])
   ])]
   
 })
 export class CommentsComponent implements OnInit {
   service!: Service | null
-  newComment!: string
+  form!: FormGroup
 
   @Output() close: EventEmitter<any> = new EventEmitter()
 
   constructor(private markerService: MarkerService) { }
 
   ngOnInit(): void {
+
+    this.form = new FormGroup({
+      content: new FormControl('')
+    })
 
     this.markerService.currentServiceId$.pipe(
       switchMap((id) => this.markerService.getService(id))
@@ -43,8 +44,9 @@ export class CommentsComponent implements OnInit {
 
   sendComment() {
     if (this.service) {
-      this.markerService.postComment(this.service.service_id, this.newComment).subscribe(() => {
-      this.newComment = ''
+      this.markerService.postComment(this.service.service_id, this.form.value.content).subscribe((comment: Comment) => {
+      this.service?.comments?.push(comment)  
+      this.form.reset();
     })
     }
     
