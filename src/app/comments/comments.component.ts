@@ -34,6 +34,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class CommentsComponent implements OnInit, AfterViewChecked {
   service!: Service | null;
   form!: FormGroup;
+  waste!: string
 
   @Output() close: EventEmitter<any> = new EventEmitter();
 
@@ -56,6 +57,7 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
       .pipe(switchMap((id) => this.markerService.getService(id)))
       .subscribe((service) => {
         this.service = service;
+        console.log(service.comments?.length)
       });
   }
 

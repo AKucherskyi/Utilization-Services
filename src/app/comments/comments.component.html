@@ -1,4 +1,4 @@
-<div class="comments" *ngIf="service" [@enterAnimation]>
+<div class="comments-section" *ngIf="service" [@enterAnimation]>
   <div class="title">
     <h3>{{ service.summary }}</h3>
     <button (click)="service = null; close.emit(null)">
@@ -13,7 +13,38 @@
     <span [class.active]="service.rating_quantity > 4"></span>
   </div>
 
-  <p class="types-of-sort">{{service.type}}</p>
+  <div>
+    <div class="types-waste-img" *ngIf="service.type === 'Plastic'"> 
+      <img src="../../assets/types-of-waste-img/plastic.jpg" alt="plactic">
+    </div>
+    <div class="types-waste-img" *ngIf="service.type === 'Metal'"> 
+      <img src="../../assets/types-of-waste-img/metal.jpg" alt="metal">
+    </div>
+    <div class="types-waste-img" *ngIf="service.type === 'Paper'"> 
+      <img src="../../assets/types-of-waste-img/paper.jpg" alt="paper">
+    </div>
+    <div class="types-waste-img" *ngIf="service.type === 'Batteries'"> 
+      <img src="../../assets/types-of-waste-img/batteries.jpg" alt="batteries">
+    </div>
+    <div class="types-waste-img" *ngIf="service.type === 'Glass'"> 
+      <img src="../../assets/types-of-waste-img/glass.jpg" alt="glass">
+    </div>
+    <div class="types-waste-img" *ngIf="service.type === 'Clothes'"> 
+      <img src="../../assets/types-of-waste-img/clothes.jpg" alt="clothes">
+    </div>
+    <div class="types-waste-img" *ngIf="service.type === 'Light-bulbs'"> 
+      <img src="../../assets/types-of-waste-img/light-bulbs.jpg" alt="light-bulds">
+    </div>
+    <div class="types-waste-img" *ngIf="service.type === 'E-Waste'"> 
+      <img src="../../assets/types-of-waste-img/e-waste.jpg " alt="e-waste">
+    </div>
+    <div class="types-waste-img" *ngIf="service.type === 'Organic'"> 
+      <img src="../../assets/types-of-waste-img/organic.jpg" alt="organic">
+    </div>
+  </div>
+
+  <p class="types-of-sort"><span>Type of waste: </span>{{service.type}}</p>
+
   <div class="options">
     <div>
 
@@ -32,16 +63,17 @@
 
   </div>
 
-  <p>{{service.address}} </p>
+  <p class="adress"><span>Adress: </span>{{service.address}}</p>
 
-  <h4>Comments</h4>
+ 
   <div class="comments-block">
+    <h4>Comments</h4>
     
     <div class="comments-list" #list>
       
       <div class="comment" *ngFor="let comment of service.comments">
-        <p>{{comment.content}}</p>
-        <div>{{comment.created_at | date: "HH:mm, dd, MMM, Y"}}</div>
+          <p>{{comment.content}}</p>
+          <div>{{comment.created_at | date: "HH:mm, dd, MMM, Y"}}</div>
       </div>
     </div>
 
