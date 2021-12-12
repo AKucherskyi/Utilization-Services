@@ -49,7 +49,7 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      content: new FormControl('', [Validators.required, Validators.minLength(2)]),
+      content: new FormControl('', [Validators.required, Validators.minLength(3)]),
     });
 
     this.markerService.currentServiceId$

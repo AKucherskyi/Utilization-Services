@@ -67,6 +67,7 @@
             <img src="../../assets/send-comment .png">
           </button>
         </div>
+        <div *ngIf = "form.invalid && form.get('content')?.touched" class="invalid-form">* Your comment must have min 3 letters.</div>
         <div>
           <textarea  placeholder="Write comment..." formControlName="content"> </textarea>
         </div>
