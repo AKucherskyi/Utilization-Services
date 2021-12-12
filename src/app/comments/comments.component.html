@@ -40,7 +40,8 @@
     <div class="comments-list" #list>
       
       <div class="comment" *ngFor="let comment of service.comments">
-        {{comment.content}}
+        <p>{{comment.content}}</p>
+        <div>{{comment.created_at | date: "HH:mm, dd, MMM, Y"}}</div>
       </div>
     </div>
 
