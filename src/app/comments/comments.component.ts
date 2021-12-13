@@ -34,7 +34,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class CommentsComponent implements OnInit, AfterViewChecked {
   service!: Service | null;
   form!: FormGroup;
-  waste!: string
+  waste!: string;
 
   @Output() close: EventEmitter<any> = new EventEmitter();
 
@@ -50,14 +50,21 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      content: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      content: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      rating: new FormControl(''),
     });
+
+    
+    
 
     this.markerService.currentServiceId$
       .pipe(switchMap((id) => this.markerService.getService(id)))
       .subscribe((service) => {
         this.service = service;
-        console.log(service.comments?.length)
+        console.log(service?.rating_quantity);
       });
   }
 
@@ -66,8 +73,15 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
       this.markerService
         .postComment(this.service.service_id, this.form.value.content)
         .subscribe((comment: Comment) => {
-          this.form.reset();
           this.service?.comments?.push(comment);
+        });
+      this.markerService
+        .patchRating(this.service.service_id, this.form.value.rating)
+        .subscribe((service: Service) => {
+          if (this.service) {
+            this.service.rating_quantity = service.rating_quantity
+          }
+          this.form.reset();
         });
     }
   }

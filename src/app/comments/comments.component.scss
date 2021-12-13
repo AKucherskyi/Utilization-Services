@@ -38,6 +38,11 @@ button {
   font-size: 24px;
   display: flex;
   justify-content: space-between;
+  img:hover {
+    transform: scale(1.2);
+    transition: transform 100ms;
+    cursor: pointer;
+  }
 }
 
 .types-of-sort {
@@ -85,7 +90,6 @@ button {
 }
 
 .comment {
-  // border: 1px solid #8d8b88;
   border-radius: 5px;
   padding: 10px 15px;
   margin-bottom: 15px;
@@ -150,13 +154,6 @@ button {
     color: #000;
   }
 }
-
-// .comment-send {
-//   background: rgba(255, 255, 255, 0.65);
-//   box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
-//   border-radius: 5px;
-//   width: 100%;
-//   padding: 5px 12px 10px 12px;
 
 .comment-send {
   background: rgba(255, 255, 255, 0.65);

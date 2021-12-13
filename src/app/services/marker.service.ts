@@ -52,8 +52,16 @@ export class MarkerService {
   }
 
   postComment(service_id: string, content: string): Observable<any> {
-    console.log(service_id, content);
-    
     return this.http.post<Comment>(`${environment.serverUrl}/api/v1/comments`, {service_id, content})
+  }
+
+  patchRating(service_id: string, rating: number): Observable<any> {
+    return this.http.patch<Service>(`${environment.serverUrl}/api/v1/services/${service_id}`, {rating_quantity: rating})
+  }
+
+  searchWord(query: string): Observable<any> {
+    const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/'
+    return this.http.get<any>(url + query + '.json?country=ru&access_token=' + environment.mapbox.accessToken)
+    .pipe(map(res => res.features))
   }
 }

@@ -6,11 +6,11 @@
     </button>
   </div>
   <div class="rating-result">
-    <span [class.active]="service.rating_quantity > 0"></span>
     <span [class.active]="service.rating_quantity > 1"></span>
-    <span [class.active]="service.rating_quantity > 2"></span>
-    <span [class.active]="service.rating_quantity > 3"></span>
-    <span [class.active]="service.rating_quantity > 4"></span>
+    <span [class.active]="service.rating_quantity > 10"></span>
+    <span [class.active]="service.rating_quantity > 20"></span>
+    <span [class.active]="service.rating_quantity > 30"></span>
+    <span [class.active]="service.rating_quantity > 40"></span>
   </div>
 
   <div class="images">
@@ -83,15 +83,15 @@
           <div class="star">
 
             <div class="rating-area">
-              <input type="radio" id="star-5" name="rating" value="5">
+              <input type="radio" id="star-5" name="rating" value="5" formControlName="rating">
               <label for="star-5" title="Оценка «5»"></label>	
-              <input type="radio" id="star-4" name="rating" value="4">
+              <input type="radio" id="star-4" name="rating" value="4" formControlName="rating">
               <label for="star-4" title="Оценка «4»"></label>    
-              <input type="radio" id="star-3" name="rating" value="3">
+              <input type="radio" id="star-3" name="rating" value="3" formControlName="rating">
               <label for="star-3" title="Оценка «3»"></label>  
-              <input type="radio" id="star-2" name="rating" value="2">
+              <input type="radio" id="star-2" name="rating" value="2" formControlName="rating">
               <label for="star-2" title="Оценка «2»"></label>    
-              <input type="radio" id="star-1" name="rating" value="1">
+              <input type="radio" id="star-1" name="rating" value="1" formControlName="rating">
               <label for="star-1" title="Оценка «1»"></label>
             </div>
 

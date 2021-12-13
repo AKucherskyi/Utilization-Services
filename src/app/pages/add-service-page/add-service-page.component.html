@@ -1,0 +1,39 @@
+<div class="bg">
+  <form class="taxi-form" [formGroup]="form">
+    <h1>Add new service</h1>
+
+    <div class="taxi-form-data-list">
+      <select>
+        <option disabled selected>Raw material type</option>
+        <option>Plastic</option>
+        <option>Metal</option>
+        <option>Paper</option>
+        <option>Glass</option>
+        <option>Raw material type</option>
+        <option>Raw material type</option>
+        <option>Raw material type</option>
+        <option>Raw material type</option>
+      </select>
+    </div>
+
+    <div class="taxi-form-data-list">
+      <input placeholder="Name of Service" formControlName="name" />
+      <input placeholder="Description" formControlName="description" />
+      <input placeholder="Phone number" formControlName="number" />
+      <input
+        placeholder="Adress"
+        formControlName="address"
+        (input)="search()"
+      />
+      <div class="search-block">
+        <div class="search" *ngFor="let feature of features">
+          {{ feature.place_name }}
+        </div>
+      </div>
+    </div>
+
+    <div class="taxi-button">
+      <button>TO ORDER</button>
+    </div>
+  </form>
+</div>

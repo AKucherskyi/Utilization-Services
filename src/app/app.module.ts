@@ -16,6 +16,7 @@ import { RulesComponent } from './rules/rules.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommentsComponent } from './comments/comments.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddServicePageComponent } from './pages/add-service-page/add-service-page.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RulesPageComponent,
     RulesComponent,
     CommentsComponent,
+    AddServicePageComponent,
     
   ],
   imports: [

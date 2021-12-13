@@ -1,0 +1,92 @@
+h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 60px;
+    font-family: Roboto;
+}
+
+.taxi-form {
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 63px 124px 52px;
+    width: 830px;
+    box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.taxi-form-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.taxi-form-data-list {
+    display: flex;
+    flex-direction: column;
+    min-width: 248px;
+    position: relative;
+
+    input,
+    select,
+    option {
+        font-size: 16px;
+        font-family: Roboto;
+        padding: 13px;
+        margin-bottom: 9px;
+        width: 100%;
+        box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 5px;
+    }
+    select {
+        appearance: none;
+        background: url('../../../assets/arrow.png') no-repeat;
+        background-position-x: 97%;
+        background-position-y: 50%;
+    }
+    
+}
+
+.taxi-button {
+    margin: 60px auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button {
+        padding: 20px 132px;
+        font-size: 24px;
+        background-color: #6b8c21;
+        color: #fff;
+        font-family: Roboto;
+        border-radius: 5px;
+    }
+}
+.bg {
+    background: url("../../../assets/bgAddService.png");
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 284px 0 184px;
+}
+
+.search {
+    font-size: 16px;
+    font-family: Roboto;
+    padding: 13px;
+    margin-bottom: 9px;
+    width: 100%;
+}
+
+.search:hover {
+    background-color: rgb(204, 204, 204);
+}
+
+.search-block {
+    position: absolute;
+    top: 236px;
+    background-color: white;
+    width: 100%;
+    border-radius: 5px;
+}
+
+

@@ -5,12 +5,14 @@ import { BrowserModule } from "@angular/platform-browser";
 import { TaxiComponent } from "../taxi/taxi.component";
 
 import { TaxiPageComponent } from "./taxi/taxiPage.component";
+import { AddServicePageComponent } from './add-service-page/add-service-page.component';
 
 
 @NgModule({
     declarations: [
         TaxiPageComponent,
         TaxiComponent,
+        
     ],
     imports: [
       CommonModule,
