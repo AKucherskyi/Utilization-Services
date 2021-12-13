@@ -12,12 +12,22 @@
   box-sizing: border-box;
   border-radius: 5px;
   font-family: "Roboto";
-  overflow: scroll;
+  overflow-y: scroll;
   scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
-    width: 0;
-  }
+    width: 10px;
+}
+
+&::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+&::-webkit-scrollbar-thumb {
+  background-color: #adadad8e;
+  border-radius: 100px;
+}
 }
 
 button {
@@ -105,8 +115,7 @@ button {
 
   .comments-list {
     overflow: scroll;
-    height: 250px;
-    scroll-behavior: smooth;
+    max-height: 250px;
   }
   .comments-list::-webkit-scrollbar {
     width: 0;
@@ -181,6 +190,11 @@ button {
 .comment-send-header {
   display: flex;
   justify-content: space-between;
+  img:hover {
+    transform: scale(1.2);
+    transition: transform 100ms;
+    cursor: pointer;
+  }
 }
 
 .invalid-form {
@@ -227,4 +241,21 @@ button {
 }
 .rate-area > label:active {
   position: relative;
+}
+
+.images {
+  div{
+    width: 360px;
+    height: 240px;
+    position: relative;
+  }
+  div > img {
+    width: 360px;
+    height: 240px;
+    position: absolute;
+    object-fit: cover;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
 }
