@@ -57,9 +57,6 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
       rating: new FormControl(''),
     });
 
-    
-    
-
     this.markerService.currentServiceId$
       .pipe(switchMap((id) => this.markerService.getService(id)))
       .subscribe((service) => {
@@ -74,15 +71,18 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
         .postComment(this.service.service_id, this.form.value.content)
         .subscribe((comment: Comment) => {
           this.service?.comments?.push(comment);
-        });
-      this.markerService
-        .patchRating(this.service.service_id, this.form.value.rating)
-        .subscribe((service: Service) => {
-          if (this.service) {
-            this.service.rating_quantity = service.rating_quantity
-          }
           this.form.reset();
         });
+      if (this.form.value.rating) {
+        this.markerService
+          .patchRating(this.service.service_id, +this.form.value.rating)
+          .subscribe((service: Service) => {
+            if (this.service) {
+              this.service.rating_quantity = service.rating_quantity;
+            }
+            this.form.reset();
+          });
+      }
     }
   }
 }

@@ -1,18 +1,18 @@
 <div class="bg">
-  <form class="taxi-form" [formGroup]="form">
+  <form class="taxi-form" [formGroup]="form" (ngSubmit)="submit()">
     <h1>Add new service</h1>
 
     <div class="taxi-form-data-list">
-      <select>
-        <option disabled selected>Raw material type</option>
-        <option>Plastic</option>
-        <option>Metal</option>
-        <option>Paper</option>
-        <option>Glass</option>
-        <option>Raw material type</option>
-        <option>Raw material type</option>
-        <option>Raw material type</option>
-        <option>Raw material type</option>
+      <select formControlName="type">
+        <option disabled selected value="Raw material type">Raw material type</option>
+        <option value="Plastic">Plastic</option>
+        <option value="Metal">Metal</option>
+        <option value="Paper">Paper</option>
+        <option value="Glass">Glass</option>
+        <option value="Clothes">Clothes</option>
+        <option value="Waste">E-Waste</option>
+        <option value="Light-Bulbs">Light-Bulbs</option>
+        <option value="Organic">Organic</option>
       </select>
     </div>
 
@@ -23,17 +23,17 @@
       <input
         placeholder="Adress"
         formControlName="address"
-        (input)="search()"
+        [value]="selectedFeature?.place_name"
       />
       <div class="search-block">
-        <div class="search" *ngFor="let feature of features">
+        <div class="search" *ngFor="let feature of features" (click)="onSelect(feature)">
           {{ feature.place_name }}
         </div>
       </div>
     </div>
 
     <div class="taxi-button">
-      <button>TO ORDER</button>
+      <button [disabled]="!form.valid">APPLY</button>
     </div>
   </form>
 </div>

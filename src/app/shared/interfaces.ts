@@ -29,3 +29,8 @@ export interface Comment {
     created_at: string
     updated_at: string
 }
+
+export interface Feature {
+    place_name: string
+    center: number[]
+}

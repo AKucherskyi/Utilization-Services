@@ -1,8 +1,9 @@
+import { Feature, Service } from './../../shared/interfaces';
 import { MarkerService } from './../../services/marker.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { debounce } from 'rxjs/operators';
-import { interval } from 'rxjs';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { debounce, debounceTime, switchMap } from 'rxjs/operators';
+import { interval, of } from 'rxjs';
 
 @Component({
   selector: 'app-add-service-page',
@@ -10,32 +11,59 @@ import { interval } from 'rxjs';
   styleUrls: ['./add-service-page.component.scss']
 })
 export class AddServicePageComponent implements OnInit {
-  features: any = []
+  features: Feature[] = []
+  selectedFeature!: Feature
   form!: FormGroup
 
   constructor(private markerService: MarkerService) { 
     this.form = new FormGroup({
-      address: new FormControl(''),
-      name: new FormControl(''),
-      description: new FormControl(''),
-      number: new FormControl('')
+      address: new FormControl('', Validators.required),
+      name: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+      number: new FormControl('', [Validators.required, Validators.maxLength(9), Validators.minLength(9)]),
+      type: new FormControl('Raw material type')
     })
   }
 
   ngOnInit(): void {
-    // this.form.get('address')?.valueChanges.pipe(
-    //   debounce(1000)
-    // )
+    this.form.get('address')?.valueChanges.pipe(
+      debounceTime(1000),
+      switchMap(() =>  {
+        if (this.form.value.address.length > 0) {
+          return this.markerService.searchWord(this.form.value.address.toLowerCase())
+        } else {
+          return of([])
+        }
+      }
+
+      )
+    ).subscribe((features: any) => {
+          this.features = features
+        })
   }
 
-  search() {
-    if (this.form.value.address) {
-      this.markerService.searchWord(this.form.value.address.toLowerCase()).subscribe((features: any) => {
-        this.features = features
-      })
-    } else {
-      this.features = []
-    }
+  onSelect(feature: Feature) {
+    this.selectedFeature = feature
+    this.features = []
   }
+
+  submit() {
+    const service = {
+      type: this.form.value.type,
+      address: this.selectedFeature.place_name,
+      summary: this.form.value.name,
+      description: this.form.value.description,
+      coordinates: this.selectedFeature.center,
+      phone_number: +this.form.value.number
+    }
+    console.log(service);
+    
+    this.markerService.createService(service).subscribe((service) => {
+      console.log(service);
+      
+    })
+    
+  }
+
 
 }
