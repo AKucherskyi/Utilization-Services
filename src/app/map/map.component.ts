@@ -1,11 +1,10 @@
-import { Subject } from 'rxjs';
 import { MarkerService, TypeOfWaste } from './../services/marker.service';
 import { environment } from '../../environments/environment';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { GeoJson } from '../shared/interfaces';
 import { Router } from '@angular/router';
-import { trigger, transition, style, animate } from '@angular/animations';
+
 
 @Component({
   selector: 'app-map',
@@ -33,7 +32,6 @@ export class MapComponent implements OnInit {
       center: [this.lng, this.lat],
     });
 
-    // Add map controls
     this.map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 
     this.markerService.getMarkers().subscribe((geojson) => {

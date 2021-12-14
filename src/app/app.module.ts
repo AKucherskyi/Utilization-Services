@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommentsComponent } from './comments/comments.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddServicePageComponent } from './pages/add-service-page/add-service-page.component';
+import { HomeComponent } from './home/home.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { AddServicePageComponent } from './pages/add-service-page/add-service-pa
     RulesComponent,
     CommentsComponent,
     AddServicePageComponent,
-    
+    HomeComponent,
+    HomePageComponent,
   ],
   imports: [
     CommonModule,

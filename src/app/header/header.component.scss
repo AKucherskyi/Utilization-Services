@@ -16,9 +16,9 @@ a {
 
 
 .active-link {
-    background-color: #EEC73C;
+    border: 1px solid black;
     &:hover {
-        background-color: #eec73cb2;
+        background-color: #f5f5f5b2;
     }
 }
 
@@ -56,7 +56,6 @@ a {
             margin-right:  60px;
            a {
             padding: 8px 16px;
-            border-radius: 4px;
             &:hover {
                 background-color: rgb(233, 233, 233);
                 color: #314506;
