@@ -73,15 +73,26 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
           this.service?.comments?.push(comment);
           this.form.reset();
         });
+
       if (this.form.value.rating) {
-        this.markerService
-          .patchRating(this.service.service_id, +this.form.value.rating)
+        let deltaRating: number =
+          this.form.value.rating - +this.service.rating_quantity;
+        if (this.service.rating_quantity != 0) {
+          deltaRating = Math.round(deltaRating / 2 + (Math.random() - 0.5));
+        }
+        console.log(deltaRating);
+        if (deltaRating != 0) {
+          this.markerService
+          .patchRating(this.service.service_id, deltaRating)
           .subscribe((service: Service) => {
             if (this.service) {
               this.service.rating_quantity = service.rating_quantity;
             }
             this.form.reset();
           });
+        }
+        
+        
       }
     }
   }
