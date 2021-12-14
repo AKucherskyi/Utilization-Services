@@ -1,6 +1,65 @@
+.home-section {
+    font-family: "Roboto";
+}
+
 .title-block {
-    background-image: url(../../assets/bgHomePage.png);
+    background-image: url(../../assets/bgHomePage.jpg);
     background-size: cover;
     background-position: center;
     height: 100vh;
+}
+.title-block-text {
+    width: 1440px;
+    border: 3px solid #fff;
+    border-top: 0px;
+    margin: 76px auto 0;
+    padding: 170px 148px 200px;
+    text-align: center;
+
+    h1 {
+        font-size: 60px;
+        color: #3e3e3e;
+    }
+}
+
+.title-block-button {
+    margin: 120px auto 0;
+    display: flex;
+    justify-content: space-between;
+    width: 965px;
+}
+
+.title-button {
+    text-align: center;
+    align-items: center;
+    padding: 38px 101px;
+    font-size: 22px;
+    width: 449px;
+    margin: auto;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.about-us-block {
+    margin: 100px auto 0;
+    width: 1162px;
+
+    h2 {
+        text-align: center;
+        font-size: 50px;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 32px;
+        color: #3e3e3e;
+        width: 1030px;
+        margin: 34px auto 40px;
+    }
+}
+
+.about-us-block-photo-flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 45px;
 }
