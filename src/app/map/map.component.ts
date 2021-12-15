@@ -87,6 +87,10 @@ export class MapComponent implements OnInit {
                </div>
                 
                 <p>${feature.properties.description}</p>
+
+                <p><b>	
+                &#128222;</b>	
+                &#160; ${feature.properties.phone_number}</p>
               
                 <h4>${feature.properties.adress}</h4>`
 

@@ -37,7 +37,8 @@ export class MarkerService {
             description: obj.description,
             adress: obj.address,
             rating: obj.rating_quantity,
-            id: obj.service_id
+            id: obj.service_id,
+            phone_number: obj.phone_number
           }
         }))
       })

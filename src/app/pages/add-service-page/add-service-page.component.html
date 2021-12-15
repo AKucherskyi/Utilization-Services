@@ -2,13 +2,16 @@
   <form class="taxi-form" [formGroup]="form" (ngSubmit)="submit()">
     <h1>New service for receiving raw materials</h1>
 
-    <p>Do you know a service that is not on the map, or have you opened a similar one?
-        Feel free to add it to the map.
+    <p>
+      Do you know a service that is not on the map, or have you opened a similar
+      one? Feel free to add it to the map.
     </p>
 
     <div class="taxi-form-data-list">
       <select formControlName="type" required>
-        <option value="Raw material type" disabled selected hidden>Raw material type</option>
+        <option value="Raw material type" disabled selected hidden>
+          Raw material type
+        </option>
         <option value="Plastic">Plastic</option>
         <option value="Metal">Metal</option>
         <option value="Paper">Paper</option>
@@ -17,20 +20,56 @@
         <option value="Waste">E-Waste</option>
         <option value="Light-Bulbs">Light-Bulbs</option>
         <option value="Organic">Organic</option>
+        <option value="Batteries">Batteries</option>
       </select>
+      <div class="validation">
+        <small *ngIf="form.get('type')?.invalid && form.get('type')?.touched"
+          >Choose the type of waste.</small
+        >
+      </div>
     </div>
 
     <div class="taxi-form-data-list">
       <input placeholder="Name of Service" formControlName="name" />
+      <div class="validation">
+        <small *ngIf="form.get('name')?.invalid && form.get('name')?.touched"
+          >Field should not be empty.</small
+        >
+      </div>
+
       <input placeholder="Description" formControlName="description" />
+      <div class="validation">
+        <small
+          *ngIf="
+            form.get('description')?.invalid && form.get('description')?.touched
+          "
+          >Field should not be empty.</small
+        >
+      </div>
       <input placeholder="Phone number" formControlName="number" />
+      <div class="validation">
+        <small
+          *ngIf="form.get('number')?.invalid && form.get('number')?.touched"
+          >Number length should be between 7 and 10 characters</small
+        >
+      </div>
       <input
         placeholder="Address"
         formControlName="address"
         [value]="selectedFeature?.place_name"
       />
+      <div class="validation">
+        <small
+          *ngIf="form.get('address')?.invalid && form.get('address')?.touched"
+          >Should be real address.</small
+        >
+      </div>
       <div class="search-block">
-        <div class="search" *ngFor="let feature of features" (click)="onSelect(feature)">
+        <div
+          class="search"
+          *ngFor="let feature of features"
+          (click)="onSelect(feature)"
+        >
           {{ feature.place_name }}
         </div>
       </div>

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Feature, Service } from './../../shared/interfaces';
 import { MarkerService } from './../../services/marker.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,13 +16,13 @@ export class AddServicePageComponent implements OnInit {
   selectedFeature!: Feature
   form!: FormGroup
 
-  constructor(private markerService: MarkerService) { 
+  constructor(private markerService: MarkerService, private router: Router) { 
     this.form = new FormGroup({
-      address: new FormControl('', Validators.required),
+      address: new FormControl('', [Validators.required]),
       name: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
-      number: new FormControl('', [Validators.required, Validators.maxLength(9), Validators.minLength(9)]),
-      type: new FormControl('Raw material type')
+      number: new FormControl('', [Validators.required, Validators.maxLength(9), Validators.minLength(7)]),
+      type: new FormControl('Raw material type', Validators.maxLength(15))
     })
   }
 
@@ -60,7 +61,7 @@ export class AddServicePageComponent implements OnInit {
     
     this.markerService.createService(service).subscribe((service) => {
       console.log(service);
-      
+      this.router.navigate(['/map'])
     })
     
   }

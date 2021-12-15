@@ -10,15 +10,22 @@
 }
 .title-block-text {
     width: 1440px;
-    border: 3px solid #fff;
-    border-top: 0px;
+    border-width: 2px;
+  border-style: solid;
+  border-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 1)
+    ) 2 2;
+    
     margin: 76px auto 0;
-    padding: 170px 148px 200px;
+    padding: 100px 148px 128px;
     text-align: center;
 
     h1 {
         font-size: 60px;
         color: #3e3e3e;
+        margin: 64px 0 200px;
     }
 }
 
@@ -32,12 +39,16 @@
 .title-button {
     text-align: center;
     align-items: center;
-    padding: 38px 101px;
+    padding: 28px 101px;
     font-size: 22px;
     width: 449px;
     margin: auto;
     border: 1px solid #fff;
     color: #fff;
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.199);
+        transition: all 150ms;
+    }
 }
 
 .about-us-block {
@@ -63,3 +74,5 @@
     justify-content: space-between;
     margin-bottom: 45px;
 }
+
+
