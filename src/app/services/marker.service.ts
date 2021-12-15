@@ -1,5 +1,5 @@
 import { environment } from './../../environments/environment';
-import { GeoJson, Service } from './../shared/interfaces';
+import { GeoJson, Question, Service } from './../shared/interfaces';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -58,6 +58,10 @@ export class MarkerService {
 
   postComment(service_id: string, content: string): Observable<any> {
     return this.http.post<Comment>(`${environment.serverUrl}/api/v1/comments`, {service_id, content})
+  }
+
+  postQuestion(service_id: string, description: string): Observable<any> {
+    return this.http.post<Question>(`${environment.serverUrl}/api/v1/questions`, {service_id, description})
   }
 
   patchRating(service_id: string, rating: number = 0): Observable<any> {

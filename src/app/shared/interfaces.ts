@@ -13,7 +13,7 @@ export interface Service {
     summary: string
     created_at: string
     updated_at: string
-    questions?: string[]
+    questions?: any[]
     comments?: Comment[]
     phone_number: string
 }
@@ -33,4 +33,13 @@ export interface Comment {
 export interface Feature {
     place_name: string
     center: number[]
+}
+
+export interface Question {
+    description: string
+    service_id: string
+    question_id: string
+    created_at: string
+    updated_at: string
+
 }

@@ -17,17 +17,17 @@
 
   &::-webkit-scrollbar {
     width: 10px;
-}
+  }
 
-&::-webkit-scrollbar-track {
-  background-color: #e4e4e4;
-  border-radius: 100px;
-}
+  &::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+  }
 
-&::-webkit-scrollbar-thumb {
-  background-color: #adadad8e;
-  border-radius: 100px;
-}
+  &::-webkit-scrollbar-thumb {
+    background-color: #adadad8e;
+    border-radius: 100px;
+  }
 }
 
 button {
@@ -79,10 +79,10 @@ button {
   justify-content: flex-start;
   align-items: flex-end;
   margin: 20px 0;
-  img {
-    margin-right: 24px;
+  button {
+    margin-right: 20px;
   }
-  img:hover {
+  button:hover {
     transform: scale(1.2);
     transition: transform 100ms;
     cursor: pointer;
@@ -118,12 +118,28 @@ button {
   }
 
   .comments-list {
-    overflow: scroll;
+    overflow-y: scroll;
     max-height: 250px;
+    direction: rtl;
+    text-align: left;
+    padding: 0 8px;
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: #e4e4e4;
+      border-radius: 100px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background-color: #adadad8e;
+      border-radius: 100px;
+    }
   }
-  .comments-list::-webkit-scrollbar {
-    width: 0;
-  }
+  // .comments-list::-webkit-scrollbar {
+  //   width: 0;
+  // }
 }
 
 .types-waste-img {
@@ -141,7 +157,7 @@ button {
 
 .no-comment {
   color: #000 !important;
-} 
+}
 
 .adress {
   font-size: 16px;
@@ -169,11 +185,13 @@ button {
   textarea {
     width: 100%;
     resize: none;
+    
   }
 
   textarea::-webkit-scrollbar {
     width: 0;
   }
+  
 
   .star {
     margin: 0;
@@ -241,7 +259,7 @@ button {
 }
 
 .images {
-  div{
+  div {
     width: 360px;
     height: 240px;
     position: relative;
@@ -251,8 +269,24 @@ button {
     height: 240px;
     position: absolute;
     object-fit: cover;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
+}
+
+.material-icons {
+  color: rgba(107, 140, 33, 1);
+  font-size: 42px;
+}
+
+.yellow {
+  color: rgba(255, 199, 0, 1);
+}
+
+.no-comments {
+  margin-bottom: 15px;
+  color:rgb(100, 100, 100);
+  text-align: center;
+  
 }

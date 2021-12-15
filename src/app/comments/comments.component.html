@@ -14,66 +14,68 @@
   </div>
 
   <div class="images">
-    <div class="types-waste-img" *ngIf="service.type === 'Plastic'"> 
-      <img src="../../assets/types-of-waste-img/plastic.jpg" alt="plactic">
+    <div class="types-waste-img" *ngIf="service.type === 'Plastic'">
+      <img src="../../assets/types-of-waste-img/plastic.jpg" alt="plactic" />
     </div>
-    <div class="types-waste-img" *ngIf="service.type === 'Metal'"> 
-      <img src="../../assets/types-of-waste-img/metal.jpg" alt="metal">
+    <div class="types-waste-img" *ngIf="service.type === 'Metal'">
+      <img src="../../assets/types-of-waste-img/metal.jpg" alt="metal" />
     </div>
-    <div class="types-waste-img" *ngIf="service.type === 'Paper'"> 
-      <img src="../../assets/types-of-waste-img/paper.jpg" alt="paper">
+    <div class="types-waste-img" *ngIf="service.type === 'Paper'">
+      <img src="../../assets/types-of-waste-img/paper.jpg" alt="paper" />
     </div>
-    <div class="types-waste-img" *ngIf="service.type === 'Batteries'"> 
-      <img src="../../assets/types-of-waste-img/batteries.jpg" alt="batteries">
+    <div class="types-waste-img" *ngIf="service.type === 'Batteries'">
+      <img
+        src="../../assets/types-of-waste-img/batteries.jpg"
+        alt="batteries"
+      />
     </div>
-    <div class="types-waste-img" *ngIf="service.type === 'Glass'"> 
-      <img src="../../assets/types-of-waste-img/glass.jpg" alt="glass">
+    <div class="types-waste-img" *ngIf="service.type === 'Glass'">
+      <img src="../../assets/types-of-waste-img/glass.jpg" alt="glass" />
     </div>
-    <div class="types-waste-img" *ngIf="service.type === 'Clothes'"> 
-      <img src="../../assets/types-of-waste-img/clothes.jpg" alt="clothes">
+    <div class="types-waste-img" *ngIf="service.type === 'Clothes'">
+      <img src="../../assets/types-of-waste-img/clothes.jpg" alt="clothes" />
     </div>
-    <div class="types-waste-img" *ngIf="service.type === 'Light-bulbs'"> 
-      <img src="../../assets/types-of-waste-img/light-bulbs.jpg" alt="light-bulds">
+    <div class="types-waste-img" *ngIf="service.type === 'Light-bulbs'">
+      <img
+        src="../../assets/types-of-waste-img/light-bulbs.jpg"
+        alt="light-bulds"
+      />
     </div>
-    <div class="types-waste-img" *ngIf="service.type === 'E-Waste'"> 
-      <img src="../../assets/types-of-waste-img/e-waste.jpg " alt="e-waste">
+    <div class="types-waste-img" *ngIf="service.type === 'E-Waste'">
+      <img src="../../assets/types-of-waste-img/e-waste.jpg " alt="e-waste" />
     </div>
-    <div class="types-waste-img" *ngIf="service.type === 'Organic'"> 
-      <img src="../../assets/types-of-waste-img/organic.jpg" alt="organic">
+    <div class="types-waste-img" *ngIf="service.type === 'Organic'">
+      <img src="../../assets/types-of-waste-img/organic.jpg" alt="organic" />
     </div>
   </div>
 
-  <p class="types-of-sort"><span>Type of waste: </span>{{service.type}}</p>
+  <p class="types-of-sort"><span>Type of waste: </span>{{ service.type }}</p>
 
   <div class="options">
-    <div>
+    <button (click)="showComments = true">
+      <span class="material-icons" [class.yellow]="showComments">
+        question_answer
+      </span>
+    </button>
 
-      <img id="btn" src="../../assets/phone.png" width="24" height="24" />
-    </div>
-
-    <div>
-
-      <img src="../../assets/letter.png" width="27" height="20" />
-    </div>
-
-    <div>
-
-      <img src="../../assets/net.png" width="25" height="24" />
-    </div>
-
+    <button (click)="showComments = false">
+      <span class="material-icons" [class.yellow]="!showComments">
+        contact_support
+      </span>
+    </button>
   </div>
 
-  <p class="adress"><span>Adress: </span>{{service.address}}</p>
+  <p class="adress"><span>Adress: </span>{{ service.address }}</p>
 
- 
-  <div class="comments-block">
+  <p class="adress"><span>Payment: </span>{{ payment }}</p>
+
+  <div class="comments-block" *ngIf="showComments; else questions">
     <h4>Comments</h4>
-    
-    <div class="comments-list" #list>
-      
+
+    <div class="comments-list" #list *ngIf="service.comments && service.comments.length > 0; else nocomments">
       <div class="comment" *ngFor="let comment of service.comments">
-          <p>{{comment.content}}</p>
-          <div>{{comment.created_at | date: "HH:mm, dd, MMM, Y"}}</div>
+        <p>{{ comment.content }}</p>
+        <div>{{ comment.created_at | date: "HH:mm, dd, MMM, Y" }}</div>
       </div>
     </div>
 
@@ -81,32 +83,110 @@
       <div class="comment-send">
         <div class="comment-send-header">
           <div class="star">
-
             <div class="rating-area">
-              <input type="radio" id="star-5" name="rating" value="5" formControlName="rating">
-              <label for="star-5" title="Оценка «5»"></label>	
-              <input type="radio" id="star-4" name="rating" value="4" formControlName="rating">
-              <label for="star-4" title="Оценка «4»"></label>    
-              <input type="radio" id="star-3" name="rating" value="3" formControlName="rating">
-              <label for="star-3" title="Оценка «3»"></label>  
-              <input type="radio" id="star-2" name="rating" value="2" formControlName="rating">
-              <label for="star-2" title="Оценка «2»"></label>    
-              <input type="radio" id="star-1" name="rating" value="1" formControlName="rating">
-              <label for="star-1" title="Оценка «1»"></label>
+              <input
+                type="radio"
+                id="star-5"
+                name="rating"
+                value="5"
+                formControlName="rating"
+              />
+              <label for="star-5" title="Mark «5»"></label>
+              <input
+                type="radio"
+                id="star-4"
+                name="rating"
+                value="4"
+                formControlName="rating"
+              />
+              <label for="star-4" title="Mark «4»"></label>
+              <input
+                type="radio"
+                id="star-3"
+                name="rating"
+                value="3"
+                formControlName="rating"
+              />
+              <label for="star-3" title="Mark «3»"></label>
+              <input
+                type="radio"
+                id="star-2"
+                name="rating"
+                value="2"
+                formControlName="rating"
+              />
+              <label for="star-2" title="Mark «2»"></label>
+              <input
+                type="radio"
+                id="star-1"
+                name="rating"
+                value="1"
+                formControlName="rating"
+              />
+              <label for="star-1" title="Mark «1»"></label>
             </div>
-
           </div>
           <button (click)="sendComment()" [disabled]="!form.valid">
-            <img src="../../assets/send-comment .png">
+            <img src="../../assets/send-comment .png" />
           </button>
         </div>
-        <div *ngIf = "form.invalid && form.get('content')?.touched" class="invalid-form">* Your comment must have min 3 letters.</div>
+        <div
+          *ngIf="form.invalid && form.get('content')?.touched"
+          class="invalid-form"
+        >
+          * Your comment must have min 3 symbols.
+        </div>
         <div>
-          <textarea  placeholder="Write comment..." formControlName="content"> </textarea>
+          <textarea placeholder="Write comment..." formControlName="content">
+          </textarea>
         </div>
       </div>
-      
     </form>
   </div>
 
+  <ng-template #questions class="comments-block">
+    <div class="comments-block">
+      <h4>Questions</h4>
+
+      <div class="comments-list" #list *ngIf="service.questions && service.questions.length > 0; else noquestions">
+        <div class="comment" *ngFor="let question of service.questions">
+          <p>{{ question.description }}</p>
+          <div>{{ question.created_at | date: "HH:mm, dd, MMM, Y" }}</div>
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="formQuestion">
+      <div class="comment-send">
+        <div class="comment-send-header">
+          <div></div>
+          <button (click)="sendQuestion()" [disabled]="!formQuestion.valid">
+            <img src="../../assets/send-comment .png" />
+          </button>
+        </div>
+        <div
+          *ngIf="form.invalid && form.get('content')?.touched"
+          class="invalid-form"
+        >
+          * Your question must have min 3 symbols.
+        </div>
+        <div>
+          <textarea
+            placeholder="Write comment..."
+            formControlName="description"
+          >
+          </textarea>
+        </div>
+      </div>
+    </form>
+  </ng-template>
 </div>
+
+<ng-template #noquestions>
+  <p class="no-comments">No questions...</p>
+</ng-template>
+
+<ng-template #nocomments>
+  <p class="no-comments">No comments...</p>
+</ng-template>
+

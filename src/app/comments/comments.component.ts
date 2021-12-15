@@ -34,7 +34,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class CommentsComponent implements OnInit, AfterViewChecked {
   service!: Service | null;
   form!: FormGroup;
+  formQuestion!: FormGroup;
   waste!: string;
+  showComments: boolean = true;
+  payment: string = 'free' 
 
   @Output() close: EventEmitter<any> = new EventEmitter();
 
@@ -49,6 +52,8 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit(): void {
+    
+
     this.form = new FormGroup({
       content: new FormControl('', [
         Validators.required,
@@ -57,11 +62,18 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
       rating: new FormControl(''),
     });
 
+    this.formQuestion = new FormGroup({
+      description: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+    });
+
     this.markerService.currentServiceId$
       .pipe(switchMap((id) => this.markerService.getService(id)))
       .subscribe((service) => {
         this.service = service;
-        console.log(service?.rating_quantity);
+        this.payment = (Math.random() - 0.5) > 0 ? 'paid' : 'free'
       });
   }
 
@@ -83,17 +95,29 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
         console.log(deltaRating);
         if (deltaRating != 0) {
           this.markerService
-          .patchRating(this.service.service_id, deltaRating)
-          .subscribe((service: Service) => {
-            if (this.service) {
-              this.service.rating_quantity = service.rating_quantity;
-            }
-            this.form.reset();
-          });
+            .patchRating(this.service.service_id, deltaRating)
+            .subscribe((service: Service) => {
+              if (this.service) {
+                this.service.rating_quantity = service.rating_quantity;
+              }
+              this.form.reset();
+            });
         }
-        
-        
       }
+    }
+  }
+
+  sendQuestion() {
+    if (this.service) {
+      this.markerService
+        .postQuestion(
+          this.service.service_id,
+          this.formQuestion.value.description
+        )
+        .subscribe((question: Comment) => {
+          this.service?.questions?.push(question);
+          this.formQuestion.reset();
+        });
     }
   }
 }
