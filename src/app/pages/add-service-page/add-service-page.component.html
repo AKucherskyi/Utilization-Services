@@ -1,10 +1,14 @@
 <div class="bg">
   <form class="taxi-form" [formGroup]="form" (ngSubmit)="submit()">
-    <h1>Add new service</h1>
+    <h1>New service for receiving raw materials</h1>
+
+    <p>Do you know a service that is not on the map, or have you opened a similar one?
+        Feel free to add it to the map.
+    </p>
 
     <div class="taxi-form-data-list">
-      <select formControlName="type">
-        <option disabled selected value="Raw material type">Raw material type</option>
+      <select formControlName="type" required>
+        <option value="Raw material type" disabled selected hidden>Raw material type</option>
         <option value="Plastic">Plastic</option>
         <option value="Metal">Metal</option>
         <option value="Paper">Paper</option>
@@ -33,7 +37,7 @@
     </div>
 
     <div class="taxi-button">
-      <button [disabled]="!form.valid">APPLY</button>
+      <button [disabled]="!form.valid">CREATE</button>
     </div>
   </form>
 </div>
