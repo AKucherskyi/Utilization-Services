@@ -121,9 +121,10 @@ export class MapComponent implements OnInit {
   }
 
   private showServiceComments(id: string) {
-  
+    console.log(id);
     this.markerService.currentServiceId$.next(id)
     this.showComments = true
+    
     
   }
 }

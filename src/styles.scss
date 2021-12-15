@@ -145,6 +145,9 @@ h6 {
 
 .mapboxgl-popup {
   max-width: 340px !important;
+  &:hover {
+    display: block;
+  }
 }
 
 .mapboxgl-popup-content {
