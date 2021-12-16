@@ -20,6 +20,8 @@ import { AddServicePageComponent } from './pages/add-service-page/add-service-pa
 import { HomeComponent } from './home/home.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { RulesDetailsComponent } from './rules-details/rules-details.component';
+import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
+import { NgxPageScrollModule } from 'ngx-page-scroll';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { RulesDetailsComponent } from './rules-details/rules-details.component';
     TaxiPageModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPageScrollCoreModule,
+    NgxPageScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

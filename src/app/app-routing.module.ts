@@ -14,7 +14,7 @@ const routes: Routes = [
       { path: 'add', component: AddServicePageComponent },
       { path: 'home', component: HomePageComponent },
       { path: 'rules', component: RulesPageComponent },
-      { path: '**', redirectTo: '/home' }
+      // { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({
