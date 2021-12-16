@@ -59,6 +59,7 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
       content: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
+        this.noWhitespaceValidator
       ]),
       rating: new FormControl(''),
     });
@@ -67,6 +68,7 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
       description: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
+        this.noWhitespaceValidator
       ]),
     });
 
@@ -121,4 +123,10 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
         });
     }
   }
+
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
+}
 }
