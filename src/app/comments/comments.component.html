@@ -47,9 +47,12 @@
     <div class="types-waste-img" *ngIf="service.type === 'Organic'">
       <img src="../../assets/types-of-waste-img/organic.jpg" alt="organic" />
     </div>
+    <div class="types-waste-img" *ngIf="service.type.includes(' ')">
+      <img src="../../assets/types-of-waste-img/multi.jpg" alt="multi" />
+    </div>
   </div>
 
-  <p class="types-of-sort"><span>Type of waste: </span>{{ service.type }}</p>
+  <p class="types-of-sort"><span>Type of waste: </span>{{ service.type.toLowerCase().replace(re , ', ') }}</p>
 
   <div class="options">
     <button (click)="showComments = true">

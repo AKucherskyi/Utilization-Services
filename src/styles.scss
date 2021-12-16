@@ -41,7 +41,6 @@ aside {
 
 html,
 body {
-  
   width: 100%;
   font-size: 100%;
   -ms-text-size-adjust: 100%;
@@ -96,7 +95,6 @@ h6 {
   font-weight: inherit;
 }
 
-
 .marker {
   background-image: url("./assets/mapbox-icon-plastic.png");
   background-size: cover;
@@ -107,23 +105,23 @@ h6 {
   &.plastic {
     background-image: url("./assets/mapbox-icon-plastic.png");
   }
-  
+
   &.metal {
     background-image: url("./assets/mapbox-icon-metal.png");
   }
-  
+
   &.paper {
     background-image: url("./assets/mapbox-icon-paper.png");
   }
-  
+
   &.batteries {
     background-image: url("./assets/mapbox-icon-batteries.png");
   }
-  
+
   &.glass {
     background-image: url("./assets/mapbox-icon-glass.png");
   }
-  
+
   &.clothes {
     background-image: url("./assets/mapbox-icon-clothes.png");
   }
@@ -139,9 +137,20 @@ h6 {
   &.organic {
     background-image: url("./assets/mapbox-icon-organic.png");
   }
+
+  &.paper.metal {
+    background-image: url("./assets/mapbox-icon-paper-metal.png");
+  }
+
+  &.paper.glass {
+    background-image: url("./assets/mapbox-icon-glass-paper.png");
+  }
+
+  &.glass.plastic {
+    background-image: url("./assets/mapbox-icon-glass-plastic.png");
+  }
+
 }
-
-
 
 .mapboxgl-popup {
   max-width: 340px !important;
@@ -176,8 +185,6 @@ h6 {
   }
 
   .options {
-
-
     display: none;
     justify-content: space-between;
     align-items: flex-end;
@@ -208,4 +215,63 @@ h6 {
     color: gold;
     text-shadow: 1px 1px #c60;
   }
+}
+
+.paper.metal.organic,
+.paper.metal.glass,
+.paper.metal.clothes,
+.paper.metal.lightbulbs,
+.paper.metal.ewaste,
+.paper.metal.plastic,
+.paper.organic.glass,
+.paper.organic.clothes,
+.paper.organic.lightbulbs,
+.paper.organic.ewaste,
+.paper.organic .plastic,
+.paper.glass.clothes,
+.paper.glass.lightbulbs,
+.paper.glass.ewaste,
+.paper.glass.plastic,
+.paper.clothes.lightbulbs,
+.paper.clothes.ewaste,
+.paper.clothes.plastic,
+.paper.lightbulbs.ewaste,
+.paper.lightbulbs.plastic,
+.paper.ewaste .plastic,
+.metal.organic.glass,
+.metal.organic.clothes,
+.metal.organic.lightbulbs,
+.metal.organic.ewaste,
+.metal.organic.plastic,
+.metal.glass.clothes,
+.metal.glass.lightbulbs,
+.metal.glass.ewaste,
+.metal.glass.plastic,
+.metal.clothes.lightbulbs,
+.metal.clothes.ewaste,
+.metal.clothes.plastic,
+.metal.lightbulbs.ewaste,
+.metal.lightbulbs.plastic,
+.metal.ewaste.plastic,
+.organic.glass.clothes,
+.organic.glass.lightbulbs,
+.organic.glass.ewaste,
+.organic.glass.plastic,
+.organic.clothes.lightbulbs,
+.organic.clothes.ewaste,
+.organic.clothes.plastic,
+.organic.lightbulbs.ewaste,
+.organic.lightbulbs.plastic,
+.organic.ewaste.plastic,
+.glass.clothes.lightbulbs,
+.glass.clothes.ewaste,
+.glass.clothes.plastic,
+.glass.lightbulbs.ewaste,
+.glass.lightbulbs .plastic,
+.glass.ewaste.plastic,
+.clothes.lightbulbs.ewaste,
+.clothes.lightbulbs.plastic,
+.clothes.ewaste.plastic,
+.lightbulbs.ewaste.plastic {
+  background-image: url("./assets/multi-icon.png") !important;
 }

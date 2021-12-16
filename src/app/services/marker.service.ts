@@ -27,7 +27,7 @@ export class MarkerService {
       return ({
         type: 'FeatureCollection',
         features: response.map((obj) => ({
-          type: obj.type.toLowerCase(),
+          type: obj.type.toLowerCase().split(' '),
           geometry: {
             type: 'Point',
             coordinates: obj.coordinates
@@ -45,7 +45,6 @@ export class MarkerService {
       
     })
     )
-    // return of(geojson)
   }
 
   getService(id: string): Observable<Service> {

@@ -5,15 +5,14 @@ import * as mapboxgl from 'mapbox-gl';
 import { GeoJson } from '../shared/interfaces';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
-  showComments: boolean = false
- 
+  showComments: boolean = false;
+
   map!: mapboxgl.Map;
   style = 'mapbox://styles/mapbox/streets-v9';
   lat = 59.94;
@@ -21,7 +20,19 @@ export class MapComponent implements OnInit {
 
   geojson!: GeoJson;
 
-  constructor(private markerService: MarkerService, private router : Router) {}
+  visibility = {
+    plastic: true,
+    metal: true,
+    paper: true,
+    batteries: true,
+    glass: true,
+    clothes: true,
+    lightbulbs: true,
+    ewaste: true,
+    organic: true,
+  };
+
+  constructor(private markerService: MarkerService, private router: Router) {}
 
   ngOnInit() {
     (mapboxgl as any).accessToken = environment.mapbox.accessToken;
@@ -36,33 +47,39 @@ export class MapComponent implements OnInit {
 
     this.markerService.getMarkers().subscribe((geojson) => {
       console.log(geojson);
-      
+
       this.geojson = geojson;
-      this.renderMarkers()
+      this.renderMarkers();
     });
 
-  
-    this.markerService.visibility$.subscribe(([type, value]) => {
-      if (value) {
-        this.show(type);
-      } else {
-        this.hide(type);
+    this.markerService.visibility$.subscribe(
+      ([type, value]: [TypeOfWaste, boolean]) => {
+        this.visibility[type] = value;
+        this.hide();
+        this.show();
       }
-    });
+    );
   }
 
-  
-  hide(type: TypeOfWaste) {
-    let markers = document.getElementsByClassName(type);
-    for (let i = 0; i < markers.length; i++) {
-      (<HTMLElement>markers[i]).style.visibility = 'hidden';
+  hide() {
+    for (let type in this.visibility) {
+      let markers = document.getElementsByClassName(type);
+      for (let i = 0; i < markers.length; i++) {
+        if (!this.visibility[type as TypeOfWaste]) {
+          (<HTMLElement>markers[i]).style.visibility = 'hidden';
+        }
+      }
     }
   }
 
-  show(type: TypeOfWaste) {
-    let markers = document.getElementsByClassName(type);
-    for (let i = 0; i < markers.length; i++) {
-      (<HTMLElement>markers[i]).style.visibility = 'visible';
+  show() {
+    for (let type in this.visibility) {
+      let markers = document.getElementsByClassName(type);
+      for (let i = 0; i < markers.length; i++) {
+        if (this.visibility[type as TypeOfWaste]) {
+          (<HTMLElement>markers[i]).style.visibility = 'visible';
+        }
+      }
     }
   }
 
@@ -71,19 +88,29 @@ export class MapComponent implements OnInit {
       for (const feature of this.geojson.features) {
         const el = document.createElement('div');
         el.className = 'marker';
-        feature.type = feature.type.replace('-','')
-        el.classList.add(feature.type);
-       
+        feature.type = feature.type.map((f: string) => f.replace('-', ''));
+        feature.type.forEach((type: string) => {
+          el.classList.add(type);
+        });
 
         const popupContent = document.createElement('div');
-        popupContent.innerHTML = 
-        `<h3>${feature.properties.title}</h3>
+        popupContent.innerHTML = `<h3>${feature.properties.title}</h3>
               <div class="rating-result">
-                <span ${feature.properties.rating > 0 ? 'class="active"' : ''}></span>	
-                <span ${feature.properties.rating > 1 ? 'class="active"' : ''}></span>    
-                <span ${feature.properties.rating > 2 ? 'class="active"' : ''}></span>  
-                <span ${feature.properties.rating > 3 ? 'class="active"' : ''}></span>    
-                <span ${feature.properties.rating > 4 ? 'class="active"' : ''}></span>
+                <span ${
+                  feature.properties.rating > 0 ? 'class="active"' : ''
+                }></span>	
+                <span ${
+                  feature.properties.rating > 1 ? 'class="active"' : ''
+                }></span>    
+                <span ${
+                  feature.properties.rating > 2 ? 'class="active"' : ''
+                }></span>  
+                <span ${
+                  feature.properties.rating > 3 ? 'class="active"' : ''
+                }></span>    
+                <span ${
+                  feature.properties.rating > 4 ? 'class="active"' : ''
+                }></span>
                </div>
                 
                 <p>${feature.properties.description}</p>
@@ -92,25 +119,29 @@ export class MapComponent implements OnInit {
                 &#128222;</b>	
                 &#160; ${feature.properties.phone_number}</p>
               
-                <h4>${feature.properties.adress}</h4>`
+                <h4>${feature.properties.adress}</h4>`;
 
-                popupContent.addEventListener('click', (e) => {
-                  const target = e.target as HTMLElement
-                  if (target.dataset.id) {
-                    this.showServiceComments(target.dataset.id)
-                  }
-                  
-                })
+        popupContent.addEventListener('click', (e) => {
+          const target = e.target as HTMLElement;
+          if (target.dataset.id) {
+            this.showServiceComments(target.dataset.id);
+          }
+        });
 
-        let popup = new mapboxgl.Popup({offset: 25, closeButton: false}).setDOMContent(popupContent); 
+        let popup = new mapboxgl.Popup({
+          offset: 25,
+          closeButton: false,
+        }).setDOMContent(popupContent);
 
-        let marker = new mapboxgl.Marker(el)
+        let marker = new mapboxgl.Marker(el);
 
         const markerDiv = marker.getElement();
 
         markerDiv.addEventListener('mouseenter', () => marker.togglePopup());
         markerDiv.addEventListener('mouseleave', () => marker.togglePopup());
-        markerDiv.addEventListener('click', () => this.showServiceComments(feature.properties.id));
+        markerDiv.addEventListener('click', () =>
+          this.showServiceComments(feature.properties.id)
+        );
 
         marker
           .setLngLat(<mapboxgl.LngLatLike>feature.geometry.coordinates)
@@ -122,9 +153,7 @@ export class MapComponent implements OnInit {
 
   private showServiceComments(id: string) {
     console.log(id);
-    this.markerService.currentServiceId$.next(id)
-    this.showComments = true
-    
-    
+    this.markerService.currentServiceId$.next(id);
+    this.showComments = true;
   }
 }
