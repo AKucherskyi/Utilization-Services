@@ -120,8 +120,6 @@ button {
   .comments-list {
     overflow-y: scroll;
     max-height: 250px;
-    direction: rtl;
-    text-align: left;
     padding: 0 8px;
     &::-webkit-scrollbar {
       width: 10px;
