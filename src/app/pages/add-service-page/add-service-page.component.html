@@ -8,25 +8,26 @@
     </p>
 
     <div class="taxi-form-data-list">
-      <select formControlName="type" required>
-        <option value="Raw material type" disabled selected hidden>
-          Raw material type
-        </option>
-        <option value="Plastic">Plastic</option>
-        <option value="Metal">Metal</option>
-        <option value="Paper">Paper</option>
-        <option value="Glass">Glass</option>
-        <option value="Clothes">Clothes</option>
-        <option value="Waste">E-Waste</option>
-        <option value="Light-Bulbs">Light-Bulbs</option>
-        <option value="Organic">Organic</option>
-        <option value="Batteries">Batteries</option>
-      </select>
-      <div class="validation">
-        <small *ngIf="form.get('type')?.invalid && form.get('type')?.touched"
-          >Choose the type of waste.</small
-        >
+      <h3>Type of waste</h3>
+      <div class="type-waste">
+        <input type="checkbox" id="plastic" formControlName="plastic" (change)="typeChanged()"/>
+        <label for="plastic">Plastic</label>
+        <input type="checkbox" id="metal"  formControlName="metal" (change)="typeChanged()"/>
+        <label for="metal">Metal</label>
+        <input type="checkbox" id="paper"  formControlName="paper" (change)="typeChanged()"/>
+        <label for="paper">Paper</label>
+        <input type="checkbox" id="glass"  formControlName="glass" (change)="typeChanged()"/>
+        <label for="glass">Glass</label>
+        <input type="checkbox" id="organic"  formControlName="organic" (change)="typeChanged()"/>
+        <label for="organic">Organic</label>
+        <input type="checkbox" id="batteries"  formControlName="batteries" (change)="typeChanged()"/>
+        <label for="batteries">Batteries</label>
       </div>
+      <div class="validation">
+        <small
+          ></small
+        >
+      </div> 
     </div>
 
     <div class="taxi-form-data-list">
@@ -59,10 +60,11 @@
         [value]="selectedFeature?.place_name"
       />
       <div class="validation">
-        <small
+        <small 
           *ngIf="form.get('address')?.invalid && form.get('address')?.touched"
           >Should be real address.</small
         >
+        <small #addressValid class="addressValid">Should be real address.</small>
       </div>
       <div class="search-block">
         <div
@@ -76,7 +78,7 @@
     </div>
 
     <div class="taxi-button">
-      <button [disabled]="!form.valid">CREATE</button>
+      <button [disabled]="!form.valid || !typeChoosed">CREATE</button>
     </div>
   </form>
 </div>
