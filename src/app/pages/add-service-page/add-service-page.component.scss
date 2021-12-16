@@ -12,11 +12,16 @@ p {
     margin-bottom: 36px;
 }
 
+input[placeholder="Address"] {
+    background-image: url(../../../assets/marker.png);
+    background-position-y: center;
+    background-position-x: 97%;
+    background-repeat: no-repeat;
+}
+
 small {
-    // position: absolute;
+
      color: rgb(179, 0, 0);
-    // top: 48px;
-    // left: 8px;
 }
 
 select.ng-touched.ng-invalid {
@@ -54,7 +59,6 @@ input.ng-touched.ng-invalid {
         font-size: 16px;
         font-family: Roboto;
         padding: 13px;
-        // margin-bottom: 24px;
         width: 100%;
         box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
         border-radius: 5px;
