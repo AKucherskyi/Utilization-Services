@@ -60,6 +60,20 @@ export class RulesPageComponent implements OnInit {
       text: `  Polyethylene terephthalate: These are usually bottles with a raised point at the bottom, which sell water, soda, milk, butter. Also from PET are often made transparent bottles for shampoos, disposable food containers. Can be recycled.`,
       button: 'Plastic recycling services ',
     },
+
+    {
+      id: `glass`,
+      title: 'Glass',
+      text: `  Waste glass is another waste material that is produced in large quantities and is difficult to eliminate. It is known that most of the waste glass is collected, especially container glasses, remelted, and used to produce new glass. However, not all of the waste glass is suitable for the production of new glass.`,
+      button: 'Glass recycling services ',
+    },
+
+    {
+      id: `paper`,
+      title: 'Paper',
+      text: `Paper Waste is a severe problem in many industries and offices. Because of printing mistakes, junk mails, billings, and packaging, the paper may comprise up to 70% of a company's total waste. An average office employee would be using about 10,000 sheets of paper in a year.`,
+      button: 'Paper recycling services ',
+    },
   ];
   
   constructor() {}
