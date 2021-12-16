@@ -105,6 +105,9 @@ button {
     font-style: italic;
     padding-top: 8px;
   }
+  &.question {
+    background-color: rgba(38, 145, 206, 0.8);
+  }
 }
 
 .comments-block {

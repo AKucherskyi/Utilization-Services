@@ -38,6 +38,7 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
   waste!: string;
   showComments: boolean = true;
   payment: string = 'free' 
+  re = /\s/gi
 
   @Output() close: EventEmitter<any> = new EventEmitter();
 
