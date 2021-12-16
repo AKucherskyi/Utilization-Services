@@ -17,6 +17,7 @@
     text-align: center;
     font-size: 36px;
     padding: 20px;
+    box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.25);
   }
 
   h3 {
@@ -25,6 +26,12 @@
     font-size: 24px;
     padding: 20px;
     margin-top: 16px;
+    box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    &:hover {
+      background-color: rgb(196, 196, 196);
+      transition: all 150ms ease-in;
+    }
   }
 }
 
@@ -42,11 +49,18 @@
     padding: 15px;
     width: 380px;
     margin-top: 16px;
+    box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    &:hover {
+      background-color: rgb(196, 196, 196);
+      transition: all 150ms ease-in;
+    }
   }
 }
 
 .rules-details-section {
   margin: 100px 0;
+ 
 }
 
 a {

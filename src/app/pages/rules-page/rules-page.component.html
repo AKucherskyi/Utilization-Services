@@ -18,11 +18,16 @@
         <li>Plastic</li>
         <li>Paper</li>
         <li>Glass</li>
-        <li>Metal</li>
+        
+        <a [routerLink]="['rules']" href="#metal" [pageScrollDuration]="500" pageScroll>
+          <li>Metal</li>
+        </a>
       </ul>
     </div>
-
-    <h3>Organic</h3>
+    <a [routerLink]="['rules']" href="#organic" [pageScrollDuration]="500" pageScroll>
+      <h3>Organic</h3>
+    </a>
+    
   </div>
 </div>
 

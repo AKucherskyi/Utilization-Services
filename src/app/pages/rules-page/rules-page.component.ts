@@ -25,8 +25,29 @@ export class RulesPageComponent implements OnInit {
       The good news is that 95% of every battery and lamp is recyclable and reusable. They must be handed over in specially designated places.`,
       button: 'Batteries recycling services ',
     },
-  ];
 
+    {
+      id: `metal`,
+      title: 'Metal',
+      text: `Metal can be recycled. But it is necessary to sort it in advance by type and color.`,
+      button: 'Metal recycling services ',
+    },
+
+    {
+      id: `clothes`,
+      title: 'Clothes',
+      text: `Most clothing is made of polyester, a material that takes hundreds or even thousands of years to decompose and cannot be recycled. If the clothes are in good condition, turn them over to charity. Throw away unwearable ones, it will go to the landfill. Reduce consumption if possible.`,
+      button: 'Clothes recycling services ',
+    },
+
+    {
+      id: `organic`,
+      title: 'Organic',
+      text: `  Unfortunately, there are no factories in Russia that process organic raw materials. However, there are services that accept organic waste and recycle it on a non-industrial scale.`,
+      button: 'Organic recycling services ',
+    },
+  ];
+  
   constructor() {}
 
   ngOnInit() {

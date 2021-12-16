@@ -52,7 +52,10 @@
     </div>
   </div>
 
-  <p class="types-of-sort"><span>Type of waste: </span>{{ service.type.toLowerCase().replace(re , ', ') }}</p>
+  <p class="types-of-sort">
+    <span>Type of waste: </span
+    >{{ service.type.toLowerCase().replace(re, ", ") }}
+  </p>
 
   <div class="options">
     <button (click)="showComments = true">
@@ -72,13 +75,18 @@
 
   <p class="adress"><span>Payment: </span>{{ payment }}</p>
 
-  <p class="adress"><span> <b>	
-    &#128222;</b> </span>{{ service.phone_number }}</p>
+  <p class="adress">
+    <span class="material-icons phone-icon"> call </span>{{ service.phone_number }}
+  </p>
 
   <div class="comments-block" *ngIf="showComments; else questions">
     <h4>Comments</h4>
 
-    <div class="comments-list" #list *ngIf="service.comments && service.comments.length > 0; else nocomments">
+    <div
+      class="comments-list"
+      #list
+      *ngIf="service.comments && service.comments.length > 0; else nocomments"
+    >
       <div class="comment" *ngFor="let comment of service.comments">
         <p>{{ comment.content }}</p>
         <div>{{ comment.created_at | date: "HH:mm, dd, MMM, Y" }}</div>
@@ -154,8 +162,18 @@
     <div class="comments-block">
       <h4>Questions</h4>
 
-      <div class="comments-list" #list *ngIf="service.questions && service.questions.length > 0; else noquestions">
-        <div class="comment question" *ngFor="let question of service.questions">
+      <div
+        class="comments-list"
+        #list
+        *ngIf="
+          service.questions && service.questions.length > 0;
+          else noquestions
+        "
+      >
+        <div
+          class="comment question"
+          *ngFor="let question of service.questions"
+        >
           <p>{{ question.description }}</p>
           <div>{{ question.created_at | date: "HH:mm, dd, MMM, Y" }}</div>
         </div>
@@ -195,4 +213,3 @@
 <ng-template #nocomments>
   <p class="no-comments">No comments...</p>
 </ng-template>
-
