@@ -102,8 +102,17 @@ h6 {
   width: 45px;
   height: 45px;
   cursor: pointer;
+
   &.plastic {
     background-image: url("./assets/mapbox-icon-plastic.png");
+  }
+
+  &.plastic.clothes {
+    background-image: url("./assets/mapbox-icon-plastic-clothes.png");
+  }
+
+  &.plastic.metal {
+    background-image: url("./assets/mapbox-icon-plastic-metal.png");
   }
 
   &.metal {
@@ -113,6 +122,15 @@ h6 {
   &.paper {
     background-image: url("./assets/mapbox-icon-paper.png");
   }
+
+  &.paper.metal {
+    background-image: url("./assets/mapbox-icon-paper-metal.png");
+  }
+
+  &.paper.glass {
+    background-image: url("./assets/mapbox-icon-glass-paper.png");
+  }
+
 
   &.batteries {
     background-image: url("./assets/mapbox-icon-batteries.png");
@@ -134,18 +152,15 @@ h6 {
     background-image: url("./assets/mapbox-icon-light-bulbs.png");
   }
 
+  &.lightbulbs.ewaste {
+    background-image: url("./assets/mapbox-icon-light-bulbs-e-waste.png");
+  }
+
   &.organic {
     background-image: url("./assets/mapbox-icon-organic.png");
   }
 
-  &.paper.metal {
-    background-image: url("./assets/mapbox-icon-paper-metal.png");
-  }
-
-  &.paper.glass {
-    background-image: url("./assets/mapbox-icon-glass-paper.png");
-  }
-
+  
   &.glass.plastic {
     background-image: url("./assets/mapbox-icon-glass-plastic.png");
   }
@@ -227,7 +242,7 @@ h6 {
 .paper.organic.clothes,
 .paper.organic.lightbulbs,
 .paper.organic.ewaste,
-.paper.organic .plastic,
+.paper.organic.plastic,
 .paper.glass.clothes,
 .paper.glass.lightbulbs,
 .paper.glass.ewaste,
@@ -237,7 +252,7 @@ h6 {
 .paper.clothes.plastic,
 .paper.lightbulbs.ewaste,
 .paper.lightbulbs.plastic,
-.paper.ewaste .plastic,
+.paper.ewaste.plastic,
 .metal.organic.glass,
 .metal.organic.clothes,
 .metal.organic.lightbulbs,
@@ -267,7 +282,7 @@ h6 {
 .glass.clothes.ewaste,
 .glass.clothes.plastic,
 .glass.lightbulbs.ewaste,
-.glass.lightbulbs .plastic,
+.glass.lightbulbs.plastic,
 .glass.ewaste.plastic,
 .clothes.lightbulbs.ewaste,
 .clothes.lightbulbs.plastic,
