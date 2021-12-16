@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddServicePageComponent } from './pages/add-service-page/add-service-page.component';
 import { HomeComponent } from './home/home.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { RulesDetailsComponent } from './rules-details/rules-details.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     AddServicePageComponent,
     HomeComponent,
     HomePageComponent,
+    RulesDetailsComponent
   ],
   imports: [
     CommonModule,

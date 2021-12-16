@@ -6,3 +6,48 @@
     background-position: left;
     padding: 284px 0 184px;
 }
+
+.rules-block {
+    width: 830px;
+    margin: 0 auto;
+    font-family: "Roboto";
+    
+
+    h2 {
+        background-color: #fff;
+        text-align: center;
+        font-size: 36px;
+        padding: 20px;
+    }
+
+    h3 {
+        background-color: #fff;
+        text-align: center;
+        font-size: 24px;
+        padding: 20px;
+        margin-top: 16px;
+    }
+
+}
+
+.rules-lists {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rules-column {
+    li {
+        background-color: #fff;
+        font-size: 24px;
+        text-align: center;
+        padding: 15px;
+        width: 380px;
+        margin-top: 16px;
+    }
+} 
+
+.rules-details-section {
+    margin: 100px 0;
+    
+}

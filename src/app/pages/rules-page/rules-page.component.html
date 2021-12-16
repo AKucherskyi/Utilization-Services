@@ -1,5 +1,33 @@
 <div class="bg">
-    <app-rules>
-        
-    </app-rules>
+  <div class="rules-block">
+    <h2>Choose the type of waste</h2>
+
+    <div class="rules-lists">
+      <ul class="rules-column">
+        <li>Batteries</li>
+        <li>Clothing</li>
+        <li>E-waste</li>
+        <a>
+          <li> Light bulbs</li>
+        </a>
+
+      </ul>
+      <ul class="rules-column">
+        <li>Plastic</li>
+        <li>Paper </li>
+        <li>Glass</li>
+        <li>Metal</li>
+      </ul>
+    </div>
+
+    <h3>Organic</h3>
   </div>
+</div>
+
+<div class="rules-details-section">
+  <app-rules-details 
+  *ngFor="let rule of data" 
+  [rules]=rule>
+
+  </app-rules-details>
+</div>

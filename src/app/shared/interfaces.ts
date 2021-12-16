@@ -43,3 +43,10 @@ export interface Question {
     updated_at: string
 
 }
+
+export interface Rules {
+    title: string
+    text: string
+    button: string
+    id: string
+}
