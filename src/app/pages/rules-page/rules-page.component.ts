@@ -46,6 +46,20 @@ export class RulesPageComponent implements OnInit {
       text: `  Unfortunately, there are no factories in Russia that process organic raw materials. However, there are services that accept organic waste and recycle it on a non-industrial scale.`,
       button: 'Organic recycling services ',
     },
+
+    {
+      id: `e-waste`,
+      title: 'E-Waste',
+      text: `  Electronic waste is recognized as extremely hazardous to the environment. When exposed to ultraviolet radiation, such debris begins to emit harmful substances into the atmosphere and soil. The good news is that they are disposed of in designated areas.`,
+      button: 'E-Waste recycling services ',
+    },
+
+    {
+      id: `plastic`,
+      title: 'Plastic',
+      text: `  Polyethylene terephthalate: These are usually bottles with a raised point at the bottom, which sell water, soda, milk, butter. Also from PET are often made transparent bottles for shampoos, disposable food containers. Can be recycled.`,
+      button: 'Plastic recycling services ',
+    },
   ];
   
   constructor() {}

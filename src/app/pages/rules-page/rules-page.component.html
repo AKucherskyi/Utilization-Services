@@ -1,33 +1,80 @@
-<div class="bg"  id="top">
-  <div class="rules-block" >
+<div class="bg" id="top">
+  <div class="rules-block">
     <h2>Choose the type of waste</h2>
 
     <div class="rules-lists">
       <ul class="rules-column">
-        <a  [routerLink]="['rules']" href="#batteries" [pageScrollDuration]="500" pageScroll >
+        <a
+          [routerLink]="['rules']"
+          href="#batteries"
+          [pageScrollDuration]="500"
+          pageScroll
+        >
           <li>Batteries</li>
         </a>
 
-        <li>Clothing</li>
-        <li>E-waste</li>
-        <a [routerLink]="['rules']" href="#light-bulbs" [pageScrollDuration]="500" pageScroll>
+        <a
+          [routerLink]="['rules']"
+          href="#clothes"
+          [pageScrollDuration]="500"
+          pageScroll
+        >
+          <li>Clothing</li>
+        </a>
+
+        <a
+          [routerLink]="['rules']"
+          href="#e-waste"
+          [pageScrollDuration]="500"
+          pageScroll
+        >
+          <li>E-waste</li>
+        </a>
+
+        <a
+          [routerLink]="['rules']"
+          href="#light-bulbs"
+          [pageScrollDuration]="500"
+          pageScroll
+        >
           <li>Light bulbs</li>
         </a>
+
       </ul>
       <ul class="rules-column">
-        <li>Plastic</li>
         <li>Paper</li>
         <li>Glass</li>
-        
-        <a [routerLink]="['rules']" href="#metal" [pageScrollDuration]="500" pageScroll>
+        <a
+        [routerLink]="['rules']"
+        href="#plastic"
+        [pageScrollDuration]="500"
+        pageScroll
+      >
+        <li>Plastic</li>
+      </a>
+
+        <a
+          [routerLink]="['rules']"
+          href="#metal"
+          [pageScrollDuration]="500"
+          pageScroll
+        >
           <li>Metal</li>
         </a>
+
+        
       </ul>
     </div>
-    <a [routerLink]="['rules']" href="#organic" [pageScrollDuration]="500" pageScroll>
+    <a
+      [routerLink]="['rules']"
+      href="#organic"
+      [pageScrollDuration]="500"
+      pageScroll
+    >
       <h3>Organic</h3>
     </a>
-    
+
+   
   </div>
 </div>
 
@@ -36,4 +83,12 @@
   </app-rules-details>
 </div>
 
-<a [class.show]="showButton" id="button" [routerLink]="['rules']" href="#top" [pageScrollDuration]="500" pageScroll #button></a>
+<a
+  [class.show]="showButton"
+  id="button"
+  [routerLink]="['rules']"
+  href="#top"
+  [pageScrollDuration]="500"
+  pageScroll
+  #button
+></a>
