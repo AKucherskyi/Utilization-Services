@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sahitya&display=swap');
+
 .home-section {
     font-family: "Roboto";
 }
@@ -6,7 +8,7 @@
     background-image: url(../../assets/bgHomePage.jpg);
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: calc(100vh + 70px);
 }
 .title-block-text {
     width: 1440px;
@@ -19,13 +21,14 @@
     ) 2 2;
     
     margin: 76px auto 0;
-    padding: 100px 148px 128px;
+    padding: 170px 148px 128px;
     text-align: center;
 
     h1 {
         font-size: 60px;
         color: #3e3e3e;
         margin: 64px 0 200px;
+        font-family: 'Sahitya', serif;
     }
 }
 
@@ -58,6 +61,7 @@
     h2 {
         text-align: center;
         font-size: 50px;
+        font-family: 'Sahitya', serif;
     }
 
     p {
