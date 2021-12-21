@@ -53,7 +53,7 @@ a {
         display: flex;
         align-items: center;
         li {
-            margin-right:  60px;
+            margin-left:  60px;
            a {
             padding: 8px 16px;
             &:hover {
@@ -64,6 +64,14 @@ a {
            }
         }
     }
+}
+
+.login {
+    background-color: rgba(15, 165, 1, 0.288);
+}
+
+.logout {
+    background-color: rgba(189, 173, 34, 0.329);
 }
 
 @media screen and (max-width: 768px) {

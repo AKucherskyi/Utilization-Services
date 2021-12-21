@@ -1,6 +1,6 @@
 <header>
   <div class="container">
-    <a routerLink="home"
+    <a routerLink="/home"
       >
         
           <img src="../../assets/home.png" alt="home" />
@@ -8,12 +8,15 @@
 
     <div class="navigation">
       <ul>
-        <li><a routerLink="/add" routerLinkActive="active-link">Add service</a></li>
+        <li ><a *ngIf="auth.isAuthenticated()"  routerLink="/add" routerLinkActive="active-link">Add service</a></li>
         <li><a routerLink="/rules" routerLinkActive="active-link">Sorting rules</a></li>
         <li><a routerLink="/map" routerLinkActive="active-link">Drop-off points</a></li>
+        <li ><a class="login" *ngIf="!auth.isAuthenticated(); else logout " [routerLink]="['/auth', 'login']" routerLinkActive="active-link">Sign in</a></li>
       </ul>
 
      
     </div>
   </div>
 </header>
+
+<ng-template #logout><a class="logout" (click)="auth.logout()" [routerLink]="['/auth', 'login']" routerLinkActive="active-link">Logout</a></ng-template>

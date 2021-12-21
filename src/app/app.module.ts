@@ -1,3 +1,5 @@
+import { AuthService } from './services/auth.service';
+import { SharedModule } from './shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,7 +15,7 @@ import { TaxiPageModule } from 'src/app/pages/taxiPage.module';
 import { MapPageComponent } from './pages/map-page/map-page.component';
 import { RulesPageComponent } from './pages/rules-page/rules-page.component';
 import { RulesComponent } from './rules/rules.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommentsComponent } from './comments/comments.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddServicePageComponent } from './pages/add-service-page/add-service-page.component';
@@ -22,12 +24,13 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { RulesDetailsComponent } from './rules-details/rules-details.component';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
+import { AuthInterceptor } from './services/auth.interceptor';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
-    HeaderComponent,
     FilterComponent,
     MapPageComponent,
     RulesPageComponent,
@@ -39,19 +42,16 @@ import { NgxPageScrollModule } from 'ngx-page-scroll';
     RulesDetailsComponent
   ],
   imports: [
-    CommonModule,
     BrowserModule,
-    FormsModule,
-    RouterModule,
     AppRoutingModule,
     TaxiPageModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
     NgxPageScrollCoreModule,
-    NgxPageScrollModule
+    NgxPageScrollModule,
+    SharedModule
   ],
-  providers: [],
+  providers: [AuthService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -50,3 +50,25 @@ export interface Rules {
     button: string
     id: string
 }
+
+export interface RegisterResponse {
+    user_id: string
+    email: string
+    username: string
+    password: string
+    created_at: string
+    updated_at: string
+}
+
+export interface LoginResponse {
+    user_id: string
+    email: string
+    username: string
+    password: string
+    created_at: string
+    updated_at: string
+    services: any[]
+    questions: any[]
+    comments: any[]
+    token: string
+}

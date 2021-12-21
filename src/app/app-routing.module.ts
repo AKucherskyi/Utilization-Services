@@ -15,6 +15,7 @@ const routes: Routes = [
       { path: 'home', component: HomePageComponent },
       { path: 'rules', component: RulesPageComponent },
       // { path: '**', redirectTo: '/home' }
+      {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)}
 ];
 
 @NgModule({
