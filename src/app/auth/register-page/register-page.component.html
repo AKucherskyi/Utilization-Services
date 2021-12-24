@@ -1,3 +1,85 @@
 <app-header></app-header>
+<div class="register-section">
+    <div class="register-welcome-block">
+     <div>
+         <img src="">
+     </div>
+    </div>
+    <div class="register-form-block">
+        <div class="register-form-header">
+            <h3>Welcome to ISort</h3>
+            <p>This signup will take 3 minutes to complete</p>
+            <button> <span><img src="../../../assets/auth-page-img/google.svg"> </span> Sign up with Google</button>
+        </div>
 
+        <div class="registration-variant">or</div>
 
+        <form 
+        (ngSubmit)="submit()" 
+        [formGroup]="form"
+        >
+            <div class="name-info">
+                <div>
+                    <label>First name</label>
+                    <div class="input">
+                        <div 
+                        class="valid-field"
+                        [class.invalid-field]="form.get('firstName')?.invalid && form.get('firstName')?.touched">This field is requared
+                         </div>
+                        <input 
+                        type="text" 
+                        formControlName="firstName"
+                        [class.invalid]="form.get('firstName')?.invalid && form.get('firstName')?.touched"
+                        />
+                    </div>
+                </div>
+                <div>
+                    <label>Last name</label>
+                    <div 
+                    class="input"> 
+                       <div 
+                       class="valid-field"
+                       [class.invalid-field]="form.get('lastName')?.invalid && form.get('lastName')?.touched">This field is requared
+                        </div>
+                        <input 
+                        type="text" 
+                        formControlName="lastName"
+                        [class.invalid]="form.get('lastName')?.invalid && form.get('lastName')?.touched"
+                        />
+                    </div>
+                </div>
+            </div>
+            <div class="email-info">
+                <label>Email address</label>
+                <div class="input">
+                    <div 
+                    class="valid-field"
+                    [class.invalid-field]="form.get('email')?.invalid && form.get('email')?.touched">This field is requared
+                     </div>
+                    <input 
+                    type="email" 
+                    formControlName="email"
+                    [class.invalid-email]="form.get('email')?.invalid && form.get('email')?.touched"
+                    />
+                </div>
+            </div>
+            <div class="password-info">
+                <label>Password</label>
+                <div class="input">
+                    <div 
+                    class="valid-field"
+                    [class.invalid-field]="form.get('password')?.invalid && form.get('password')?.touched">This field is requared
+                     </div>
+                    <input 
+                    type="password" 
+                    formControlName="password"
+                    [class.invalid]="form.get('password')?.invalid && form.get('password')?.touched"
+                    />
+                </div>
+            </div>
+            <button class="register-button" [disabled]="!form.valid">Create an account</button>
+        </form>
+
+        <div class="login-page">Already have an account? <span>Sign in</span> </div>
+    </div>
+</div>
