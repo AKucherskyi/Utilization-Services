@@ -1,16 +1,15 @@
+import { AuthService } from './../services/auth.service';
 import { concatMap, switchMap } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { MarkerService } from './../services/marker.service';
 import { Service, Comment } from './../shared/interfaces';
 import {
-  AfterContentChecked,
   AfterViewChecked,
-  AfterViewInit,
+
   Component,
   ElementRef,
   EventEmitter,
-  Input,
   OnInit,
   Output,
   ViewChild,
@@ -44,7 +43,7 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
 
   @ViewChild('list') list!: ElementRef;
 
-  constructor(private markerService: MarkerService) {}
+  constructor(private markerService: MarkerService, public auth: AuthService) {}
 
   ngAfterViewChecked(): void {
     if (this.list) {
@@ -54,7 +53,6 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
 
   ngOnInit(): void {
     
-
     this.form = new FormGroup({
       content: new FormControl('', [
         Validators.required,
@@ -95,7 +93,6 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
         if (this.service.rating_quantity != 0) {
           deltaRating = Math.round(deltaRating / 2 + (Math.random() - 0.5));
         }
-        console.log(deltaRating);
         if (deltaRating != 0) {
           this.markerService
             .patchRating(this.service.service_id, deltaRating)

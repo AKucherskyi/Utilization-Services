@@ -10,6 +10,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-login-page',
@@ -24,7 +25,7 @@ export class LoginPageComponent implements OnInit {
     private router: Router
   ) {}
   form!: FormGroup;
-  error!: any;
+  error$: Subject<string> = new Subject<string>()
 
   ngOnInit(): void {
     this.form = this.fb.group(
@@ -51,10 +52,10 @@ export class LoginPageComponent implements OnInit {
           .subscribe(
             (response) => {
               console.log(response);
+              this.router.navigate(['/home']);
             },
             (err) => {
-              this.error = err.error;
-              console.log(this.error);
+              this.error$.next(err.error.message)
             }
           );
         break;
@@ -74,9 +75,7 @@ export class LoginPageComponent implements OnInit {
             })
           });
         break;
-    }
-    
-    this.router.navigate(['/home']);
+    }   
   }
 
   private passwordValidator(group: AbstractControl): ValidationErrors | null {

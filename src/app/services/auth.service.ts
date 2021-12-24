@@ -7,6 +7,9 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class AuthService {
+
+    
+
     constructor(private http: HttpClient) {}
 
     get token(): string | null {

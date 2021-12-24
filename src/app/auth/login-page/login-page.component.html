@@ -2,6 +2,7 @@
 
 <div class="container">
   <form (ngSubmit)="submit()" [formGroup]="form">
+    
     <input
       checked=""
       id="signin"
@@ -27,6 +28,7 @@
       formControlName="action"
     />
     <label for="reset">Reset</label>
+    <div *ngIf="error$ | async as error" class="error">{{error}}</div>
     <div id="wrapper">
       <div id="arrow"></div>
       <input

@@ -1,6 +1,7 @@
 import { tap } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 import {
+  HttpErrorResponse,
   HttpEvent,
   HttpHandler,
   HttpInterceptor,
@@ -25,7 +26,15 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     return next.handle(req).pipe(
-        tap((event) => console.log(event))
+        tap(() => {},
+        (err) => {
+          if (err instanceof HttpErrorResponse) {
+            if (err.status == 401) {
+              console.log('Unauthorized');
+              
+            }
+          }
+        })
     );
   }
 }

@@ -76,7 +76,8 @@
   <p class="adress"><span>Payment: </span>{{ payment }}</p>
 
   <p class="adress">
-    <span class="material-icons phone-icon"> call </span>{{ service.phone_number }}
+    <span class="material-icons phone-icon"> call </span
+    >{{ service.phone_number }}
   </p>
 
   <div class="comments-block" *ngIf="showComments; else questions">
@@ -89,11 +90,14 @@
     >
       <div class="comment" *ngFor="let comment of service.comments">
         <p>{{ comment.content }}</p>
-        <div>{{ comment.created_at | date: "HH:mm, dd, MMM, Y" }}</div>
+        <div class="author">
+          <div>{{ comment.userName }}</div>
+          <div>{{ comment.created_at | date: "HH:mm, dd, MMM, Y" }}</div>
+        </div>
       </div>
     </div>
 
-    <form [formGroup]="form">
+    <form *ngIf="auth.isAuthenticated()" [formGroup]="form">
       <div class="comment-send">
         <div class="comment-send-header">
           <div class="star">
@@ -175,12 +179,15 @@
           *ngFor="let question of service.questions"
         >
           <p>{{ question.description }}</p>
-          <div>{{ question.created_at | date: "HH:mm, dd, MMM, Y" }}</div>
+          <div class="author">
+            <div>{{ question.userName }}</div>
+            <div>{{ question.created_at | date: "HH:mm, dd, MMM, Y" }}</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <form [formGroup]="formQuestion">
+    <form *ngIf="auth.isAuthenticated()" [formGroup]="formQuestion">
       <div class="comment-send">
         <div class="comment-send-header">
           <div></div>

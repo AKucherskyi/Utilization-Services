@@ -28,6 +28,7 @@ export interface Comment {
     content: string
     created_at: string
     updated_at: string
+    userName?: string
 }
 
 export interface Feature {
@@ -41,6 +42,7 @@ export interface Question {
     question_id: string
     created_at: string
     updated_at: string
+    userName?: string
 
 }
 
