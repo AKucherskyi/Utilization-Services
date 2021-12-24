@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sahitya&display=swap');
+
+:host {
+    background-color: #0e4dee;
+    color: #0a0a2e;
+    font-family: "Inter", sans-serif;
+  }
+  
+  .container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  .wrapper {
+    margin-top: 120px;
+    display: grid;
+    grid-template-columns: 1fr 20%;
+    grid-template-rows: 290px 1fr;
+    grid-column-gap: 2.5%;
+    grid-row-gap: 30px;
+    grid-template-areas:
+      "title title"
+      "main aside";
+  }
+
+  .title {
+    grid-area: title;
+   
+  }
+  
+  .main {
+    grid-area: main;
+  }
+  
+  .aside {
+    grid-area: aside;
+  }
