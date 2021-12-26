@@ -16,9 +16,9 @@ const routes: Routes = [
       { path: 'add', component: AddServicePageComponent, canActivate: [AuthGuard] },
       { path: 'home', component: HomePageComponent },
       { path: 'rules', component: RulesPageComponent },
-      // { path: '**', redirectTo: '/home' }
       {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
-      { path: 'register', component: RegisterPageComponent },
+      { path: 'user', loadChildren: () => import('./pages/user-page/user-page.module').then(m => m.UserPageModule) },
+      { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({
