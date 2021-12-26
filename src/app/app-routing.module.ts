@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RegisterPageComponent } from './auth/register-page/register-page.component';
 import { AddServicePageComponent } from './pages/add-service-page/add-service-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MapPageComponent } from './pages/map-page/map-page.component';

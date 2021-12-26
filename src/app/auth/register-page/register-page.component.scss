@@ -1,0 +1,146 @@
+.register-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 80px;
+    height: 100vh;
+    font-family: "Inter", sans-serif;
+}
+
+.register-welcome-block {
+    background-color: #f8faff;
+    width: 800px;
+}
+
+.register-form-block {
+    margin: auto;
+    padding: 42px 0;
+    max-width: 420px;
+}
+
+.register-form-header {
+    h3 {
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 39px;
+        color: #0a0a2e;
+        margin-bottom: 20px;
+    }
+    p {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        color: #9ca3bf;
+        margin-bottom: 32px;
+    }
+
+    button {
+        background: #f8faff;
+        border: 1px solid #c7cde5;
+        box-sizing: border-box;
+        border-radius: 8px;
+        padding: 18px 0;
+        width: 420px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 19px;
+        color: #0a0a2e;
+        margin-bottom: 40px;
+
+        span {
+            margin-right: 17px;
+        }
+    }
+}
+
+.registration-variant {
+    display: flex;
+    align-items: center;
+    color: #c7cde5;
+    margin-bottom: 32px;
+
+    &::before {
+        content: "";
+        margin-right: 16px;
+        border-top: 1px solid #c7cde5;
+        width: 50%;
+    }
+
+    &::after {
+        content: "";
+        border-top: 1px solid #c7cde5;
+        width: 50%;
+        margin-left: 16px;
+    }
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: 1px solid #c7cde5;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px 0 24px;
+
+    &:focus {
+        border: 1px solid #6382fc;
+    }
+}
+
+.name-info {
+    display: flex;
+    justify-content: space-between;
+
+    .input {
+        max-width: 200px;
+    }
+}
+
+label {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+
+    color: #0a0a2e;
+}
+
+.register-button {
+    background: #007eba;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #ffffff;
+    padding: 18px;
+    width: 100%;
+}
+
+.login-page {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 32px;
+
+    span {
+        color: #007eba;
+    }
+}
+
+.invalid {
+    border: 1px solid #e25454;
+}
+
+.valid-field {
+    color: #e25454;
+    font-size: 10px;
+    visibility: hidden;
+    margin-top: 7px;
+}
+
+.invalid-field {
+    color: #e25454;
+    font-size: 10px;
+    visibility: visible;
+    margin-top: 7px;
+}
