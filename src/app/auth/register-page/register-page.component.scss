@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 80px;
-    height: 100vh;
+    height: calc(100vh - 80px);
     font-family: "Inter", sans-serif;
 }
 
@@ -45,6 +45,11 @@
         line-height: 19px;
         color: #0a0a2e;
         margin-bottom: 40px;
+
+        &:hover {
+            background: #ececec;
+            transition: all 150ms;
+          }
 
         span {
             margin-right: 16px;
@@ -116,6 +121,10 @@ label {
     color: #ffffff;
     padding: 18px;
     width: 100%;
+    &:hover {
+        background: #006797;
+        transition: all 200ms;
+      }
 }
 
 .login-page {
@@ -126,6 +135,10 @@ label {
 
     span {
         color: #007eba;
+
+        &:hover {
+            color: #03567c;
+        }
     }
 }
 

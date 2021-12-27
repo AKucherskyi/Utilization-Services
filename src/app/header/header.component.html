@@ -1,4 +1,4 @@
-<header>
+<header [class.light-shadow]="lightShadow">
   <div class="container">
     <a routerLink="/home"
       >
@@ -11,7 +11,7 @@
         <li ><a *ngIf="auth.isAuthenticated()"  routerLink="/add" routerLinkActive="active-link">Add service</a></li>
         <li><a routerLink="/rules" routerLinkActive="active-link">Sorting rules</a></li>
         <li><a routerLink="/map" routerLinkActive="active-link">Drop-off points</a></li>
-        <li ><a class="login" *ngIf="!auth.isAuthenticated(); else logout " [routerLink]="['/auth', 'login']" routerLinkActive="active-link">Sign in</a></li>
+        <li ><a class="login" *ngIf="!auth.isAuthenticated(); else logout" [routerLink]="['/auth', 'login']" routerLinkActive="active-link">Sign in</a></li>
       </ul>
 
      

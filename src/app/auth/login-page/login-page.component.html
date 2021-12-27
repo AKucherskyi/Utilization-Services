@@ -1,6 +1,59 @@
-<app-header></app-header>
+<div class="register-section">
+  <div class="register-welcome-block">
+   <div>
+       <img src="">
+   </div>
+  </div>
+  <div class="register-form-block">
+      <div class="register-form-header">
+          <h3>Welcome to ISort</h3>
+          <div *ngIf="error$ | async as error" class="error">{{error}}</div>
+          <button> <span><img src="../../../assets/auth-page-img/google.svg"> </span> Sign in with Google</button>
+      </div>
 
-<div class="container">
+      <div class="registration-variant">or</div>
+
+      <form 
+      (ngSubmit)="submit()" 
+      [formGroup]="form"
+      >
+          
+          <div class="email-info">
+              <label>Email address</label>
+              <div class="input">
+                  <div 
+                  class="valid-field"
+                  [class.invalid-field]="form.get('email')?.invalid && form.get('email')?.touched">This field is requared
+                   </div>
+                  <input 
+                  type="email" 
+                  formControlName="email"
+                  [class.invalid]="form.get('email')?.invalid && form.get('email')?.touched"
+                  />
+              </div>
+          </div>
+          <div class="password-info">
+              <label>Password</label>
+              <div class="input">
+                  <div 
+                  class="valid-field"
+                  [class.invalid-field]="form.get('password')?.invalid && form.get('password')?.touched">This field is requared
+                   </div>
+                  <input 
+                  type="password" 
+                  formControlName="password"
+                  [class.invalid]="form.get('password')?.invalid && form.get('password')?.touched"
+                  />
+              </div>
+          </div>
+          <button class="register-button" [disabled]="!form.valid">Sign in</button>
+      </form>
+
+      <div class="login-page">Don't have an account? <a [routerLink]="['/auth', 'register']"><span>Sign up</span></a>  </div>
+  </div>
+</div>
+
+<!-- <div class="container">
   <form (ngSubmit)="submit()" [formGroup]="form">
     
     <input
@@ -70,4 +123,4 @@
     </button>
   </form>
   <div id="hint">Click on the tabs</div>
-</div>
+</div> -->

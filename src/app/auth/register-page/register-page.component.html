@@ -1,4 +1,3 @@
-<app-header></app-header>
 <div class="register-section">
     <div class="register-welcome-block">
      <div>
@@ -59,7 +58,7 @@
                     <input 
                     type="email" 
                     formControlName="email"
-                    [class.invalid-email]="form.get('email')?.invalid && form.get('email')?.touched"
+                    [class.invalid]="form.get('email')?.invalid && form.get('email')?.touched"
                     />
                 </div>
             </div>
@@ -80,6 +79,6 @@
             <button class="register-button" [disabled]="!form.valid">Create an account</button>
         </form>
 
-        <div class="login-page">Already have an account? <span>Sign in</span> </div>
+        <div class="login-page">Already have an account? <a [routerLink]="['/auth', 'login']"><span>Sign in</span></a> </div>
     </div>
 </div>

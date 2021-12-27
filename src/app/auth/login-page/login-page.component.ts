@@ -25,66 +25,87 @@ export class LoginPageComponent implements OnInit {
     private router: Router
   ) {}
   form!: FormGroup;
-  error$: Subject<string> = new Subject<string>()
+  error$: Subject<string> = new Subject<string>();
 
   ngOnInit(): void {
-    this.form = this.fb.group(
-      {
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: [''],
-        action: ['signin'],
-        username: [''],
-      },
-      { validators: this.passwordValidator }
-    );
+    this.form = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: [''],
+    });
   }
 
   submit() {
     if (this.form.invalid) {
       return;
     }
-
-    switch (this.form.value.action) {
-      case 'signin':
-        this.auth
-          .login(this.form.value.email, this.form.value.password)
-          .subscribe(
-            (response) => {
-              console.log(response);
-              this.router.navigate(['/home']);
-            },
-            (err) => {
-              this.error$.next(err.error.message)
-            }
-          );
-        break;
-      case 'signup':
-        this.auth
-          .register(
-            this.form.value.email,
-            this.form.value.password,
-            this.form.value.username
-          )
-          .subscribe((response: RegisterResponse) => {
-            this.auth
-          .login(this.form.value.email, this.form.value.password)
-          .subscribe(
-            () => {
-              this.form.reset();
-            })
-          });
-        break;
-    }   
+    this.auth.login(this.form.value.email, this.form.value.password).subscribe(
+      (response) => {
+        console.log(response);
+        this.router.navigate(['/user']);
+      },
+      (err) => {
+        this.error$.next(err.error.message);
+      }
+    );
   }
 
-  private passwordValidator(group: AbstractControl): ValidationErrors | null {
-    if (group.get('action')?.value == 'signup') {
-      let pass = group.get('password')?.value;
-      let confirmPass = group.get('confirmPassword')?.value;
-      return pass === confirmPass ? null : { notSame: true };
-    } else {
-      return null;
-    }
-  }
+  //   this.form = this.fb.group(
+  //     {
+  //       email: ['', [Validators.required, Validators.email]],
+  //       password: ['', [Validators.required, Validators.minLength(6)]],
+  //       confirmPassword: [''],
+  //       action: ['signin'],
+  //       username: [''],
+  //     },
+  //     { validators: this.passwordValidator }
+  //   );
+  // }
+
+  // submit() {
+  //   if (this.form.invalid) {
+  //     return;
+  //   }
+
+  //   switch (this.form.value.action) {
+  //     case 'signin':
+  //       this.auth
+  //         .login(this.form.value.email, this.form.value.password)
+  //         .subscribe(
+  //           (response) => {
+  //             console.log(response);
+  //             this.router.navigate(['/home']);
+  //           },
+  //           (err) => {
+  //             this.error$.next(err.error.message)
+  //           }
+  //         );
+  //       break;
+  //     case 'signup':
+  //       this.auth
+  //         .register(
+  //           this.form.value.email,
+  //           this.form.value.password,
+  //           this.form.value.username
+  //         )
+  //         .subscribe((response: RegisterResponse) => {
+  //           this.auth
+  //         .login(this.form.value.email, this.form.value.password)
+  //         .subscribe(
+  //           () => {
+  //             this.form.reset();
+  //           })
+  //         });
+  //       break;
+  //   }
+  // }
+
+  // private passwordValidator(group: AbstractControl): ValidationErrors | null {
+  //   if (group.get('action')?.value == 'signup') {
+  //     let pass = group.get('password')?.value;
+  //     let confirmPass = group.get('confirmPassword')?.value;
+  //     return pass === confirmPass ? null : { notSame: true };
+  //   } else {
+  //     return null;
+  //   }
+  // }
 }
