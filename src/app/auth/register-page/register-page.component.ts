@@ -32,16 +32,20 @@ export class RegisterPageComponent implements OnInit {
       return;
     }
 
-    const username = `${this.form.value.firstName} ${this.form.value.lastName}` 
     this.auth
       .register(
         this.form.value.email,
         this.form.value.password,
-        username
+        this.form.value.firstName,
+        this.form.value.lastName
       )
       .subscribe((response: RegisterResponse) => {
-        console.log(response);
-        this.form.reset();
+        this.auth
+          .login(this.form.value.email, this.form.value.password)
+          .subscribe(() => {
+            this.form.reset();
+            this.router.navigate(['/user']);
+          });
       });
   }
 }

@@ -57,15 +57,11 @@ export class MarkerService {
 
   postComment(service_id: string, content: string): Observable<any> {
     const user_id = localStorage.getItem('user_id')
-    console.log(user_id);
-    
     return this.http.post<Comment>(`${environment.serverUrl}/api/v1/comments`, {service_id, content, user_id})
   }
 
   postQuestion(service_id: string, description: string): Observable<any> {
     const user_id = localStorage.getItem('user_id')
-    console.log(user_id);
-
     return this.http.post<Question>(`${environment.serverUrl}/api/v1/questions`, {service_id, description, user_id})
   }
 

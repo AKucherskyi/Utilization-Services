@@ -38,8 +38,8 @@ export class AuthService {
             
     }
 
-    register(email: string, password: string, username: string): Observable<any> {
-        return this.http.post<any>(`${environment.serverUrl}/api/v1/register`, {email, password, username})
+    register(email: string, password: string, firstname: string, lastname: string): Observable<any> {
+        return this.http.post<any>(`${environment.serverUrl}/api/v1/register`, {email, password, firstname, lastname})
     }
 
     logout() {
@@ -48,7 +48,8 @@ export class AuthService {
 
     private setToken(response: LoginResponse) {
         localStorage.setItem('token', response.token)
-        localStorage.setItem('username', response.username)
+        localStorage.setItem('firstname', response.firstname)
+        localStorage.setItem('lastname', response.lastname)
         localStorage.setItem('user_id', response.user_id)
         
     }

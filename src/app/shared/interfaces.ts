@@ -65,7 +65,8 @@ export interface RegisterResponse {
 export interface LoginResponse {
     user_id: string
     email: string
-    username: string
+    firstname: string
+    lastname: string
     password: string
     created_at: string
     updated_at: string

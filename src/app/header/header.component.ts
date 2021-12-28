@@ -22,7 +22,8 @@ export class HeaderComponent implements OnInit {
       (event: any) => {
         if (event instanceof NavigationEnd) {
           if (this.auth.isAuthenticated()) {
-            this.userName$.next(localStorage.getItem('username') as string)
+            const username = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname')
+            this.userName$.next(username)
           }
           if (this.router.url.includes('auth') || this.router.url.includes('user')) {
             this.lightShadow = true
