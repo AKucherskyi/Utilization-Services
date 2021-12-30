@@ -94,7 +94,36 @@ export class MapComponent implements OnInit {
         });
 
         const popupContent = document.createElement('div');
-        popupContent.innerHTML = `<h3>${feature.properties.title}</h3>
+        popupContent.innerHTML = `
+              <div class="popup-image"></div>
+              <div class="popup-description">
+              <div class="popup-title">
+              <h3>${feature.properties.title}</h3>
+                <div class="popup-button-wrapper">
+                  <div class="popup-button">
+                    <img src="../assets/heart-filled.png" data-btn="favorite">
+                  </div>
+                </div>
+              </div>
+
+              <div class="popup-wrap">
+              <p>${feature.properties.description.split(' ').slice(0, 20).join(' ')}</p>
+
+              <div class="popup-details">
+                <div>
+                <img src="../assets/location.png"/>
+                <h4>${feature.properties.adress.split(' ').slice(0, 3).join(' ')}</h4>
+                </div>
+
+                <div data-btn="details">
+                Details 
+                <img src="../assets/east.png"/ >
+                </div>
+              </div>
+              
+              </div>
+              
+              
               <div class="rating-result">
                 <span ${
                   feature.properties.rating > 0 ? 'class="active"' : ''
@@ -113,18 +142,22 @@ export class MapComponent implements OnInit {
                 }></span>
                </div>
                 
-                <p>${feature.properties.description}</p>
-
-                <p><b>	
-                &#128222;</b>	
-                &#160; ${feature.properties.phone_number}</p>
-              
-                <h4>${feature.properties.adress}</h4>`;
+                
+                
+                </div>`;
 
         popupContent.addEventListener('click', (e) => {
-          const target = e.target as HTMLElement;
-          if (target.dataset.id) {
-            this.showServiceComments(target.dataset.id);
+          const target = e.target as HTMLElement;        
+          if (target.dataset.btn) {
+            switch (target.dataset.btn) {
+              case 'favorite':
+                console.log('favorite');
+                
+                break;
+              case 'details' :
+                console.log('details');
+                break;  
+            }
           }
         });
 
@@ -137,11 +170,11 @@ export class MapComponent implements OnInit {
 
         const markerDiv = marker.getElement();
 
-        markerDiv.addEventListener('mouseenter', () => marker.togglePopup());
-        markerDiv.addEventListener('mouseleave', () => marker.togglePopup());
-        markerDiv.addEventListener('click', () =>
-          this.showServiceComments(feature.properties.id)
-        );
+        markerDiv.addEventListener('click', () => marker.togglePopup());
+        // markerDiv.addEventListener('mouseleave', () => marker.togglePopup());
+        // markerDiv.addEventListener('click', () =>
+        //   this.showServiceComments(feature.properties.id)
+        // );
 
         marker
           .setLngLat(<mapboxgl.LngLatLike>feature.geometry.coordinates)

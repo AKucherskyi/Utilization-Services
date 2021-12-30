@@ -23,7 +23,7 @@
     font-size: 32px;
     line-height: 39px;
     color: #0a0a2e;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
   p {
     font-weight: 500;
@@ -38,11 +38,10 @@
     border: 1px solid #c7cde5;
     box-sizing: border-box;
     border-radius: 8px;
-    padding: 18px 0;
+    padding: 17px 0;
     width: 420px;
     font-weight: 600;
     font-size: 16px;
-    line-height: 19px;
     color: #0a0a2e;
     margin-bottom: 40px;
 
@@ -117,7 +116,6 @@ label {
   border-radius: 8px;
   font-weight: 600;
   font-size: 16px;
-  line-height: 19px;
   color: #ffffff;
   padding: 18px;
   width: 100%;
@@ -158,6 +156,13 @@ label {
   font-size: 10px;
   visibility: visible;
   margin-top: 7px;
+}
+
+.error {
+  margin-bottom: 20px;
+  padding: 16px;
+  background-color: #FF9073;
+  border-radius: 5px;
 }
 
 // @import url(http://fonts.googleapis.com/css?family=Raleway:700,800);

@@ -32,6 +32,8 @@ export class LoginPageComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: [''],
     });
+
+    
   }
 
   submit() {
@@ -109,3 +111,5 @@ export class LoginPageComponent implements OnInit {
   //   }
   // }
 }
+
+

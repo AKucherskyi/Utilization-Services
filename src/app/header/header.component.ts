@@ -11,7 +11,8 @@ import { map } from 'rxjs/operators';
 })
 export class HeaderComponent implements OnInit {
   userName$ = new BehaviorSubject<string>('')
-  lightShadow: boolean = false
+  exitButton: boolean = false
+
 
   constructor(public auth: AuthService, private router: Router) {
   }
@@ -25,16 +26,22 @@ export class HeaderComponent implements OnInit {
             const username = localStorage.getItem('firstname') + ' ' + localStorage.getItem('lastname')
             this.userName$.next(username)
           }
-          if (this.router.url.includes('auth') || this.router.url.includes('user')) {
-            this.lightShadow = true
-          } else {
-            this.lightShadow = false
-          }
         }
       }
     );
-    
-   
+  }
+
+  exitButtonToggle() {
+    this.exitButton = !this.exitButton
+    setTimeout(() => {
+      this.exitButton = false
+    },4000)
+  }
+
+  logout() {
+    this.auth.logout();
+    this.exitButton = false; 
+    this.router.navigate(['/map'])
   }
 
 }

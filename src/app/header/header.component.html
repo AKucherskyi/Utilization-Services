@@ -1,22 +1,51 @@
-<header [class.light-shadow]="lightShadow">
+<header>
   <div class="container">
-    <a routerLink="/home"
-      >
-        
-          <img src="../../assets/home.png" alt="home" />
-        </a>
+    <a routerLink="/home">
+      <div class="logo">
+        <img src="../../assets/logo.png" alt="home" width="40" height="40"/>
+        <span>ISort</span>
+      </div>
+    </a>
 
     <div class="navigation">
       <ul>
-        <li ><a *ngIf="auth.isAuthenticated()"  routerLink="/add" routerLinkActive="active-link">Add service</a></li>
+        <li><a routerLink="/home" routerLinkActive="active-link">About Us</a></li>
         <li><a routerLink="/rules" routerLinkActive="active-link">Sorting rules</a></li>
-        <li><a routerLink="/map" routerLinkActive="active-link">Drop-off points</a></li>
-        <li ><a class="login" *ngIf="!auth.isAuthenticated(); else logout" [routerLink]="['/auth', 'login']" routerLinkActive="active-link">Sign in</a></li>
+        <li><a routerLink="/map" routerLinkActive="active-link">Services</a></li>
+        <li ><a *ngIf="auth.isAuthenticated()"  routerLink="/add" routerLinkActive="active-link">Add service</a></li>
       </ul>
-
-     
     </div>
+
+    <div class="auth">
+      
+      <a class="login" *ngIf="!auth.isAuthenticated(); else logoutTemplate" [routerLink]="['/auth', 'login']" routerLinkActive="active-link">
+        <button class="signin">Sign in</button>
+      </a>
+    </div>
+
   </div>
+
+  <button class="exit" *ngIf="exitButton" (click)="logout()">
+    Exit 
+      <span class="material-icons">
+      exit_to_app
+      </span>
+    </button>
 </header>
 
-<ng-template #logout><a class="logout" (click)="auth.logout()" [routerLink]="['/auth', 'login']" routerLinkActive="active-link" *ngIf="userName$ | async as userName">{{userName}}</a></ng-template>
+<ng-template #logoutTemplate> 
+  <div class="auth">
+    <a href="#"><span class="material-icons">
+    favorite_border
+  </span></a>
+    <a class="login" [routerLink]="['/user']" routerLinkActive="active-link" >
+      <img src="../../assets/user-image.png" alt=""> 
+    </a>
+    <button class="logout-btn" *ngIf="userName$ | async as userName" (click)="exitButtonToggle()" >
+      <span>{{userName}}</span>
+        <span class="material-icons">
+          arrow_drop_down
+          </span>
+    </button></div>
+</ng-template>
+
