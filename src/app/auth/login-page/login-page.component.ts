@@ -11,6 +11,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { Subject } from 'rxjs';
+import {
+  GoogleLoginProvider,
+  SocialAuthService,
+  SocialUser,
+} from 'angularx-social-login';
 
 @Component({
   selector: 'app-login-page',
@@ -19,6 +24,8 @@ import { Subject } from 'rxjs';
   providers: [AuthService],
 })
 export class LoginPageComponent implements OnInit {
+  public user!: SocialUser;
+
   constructor(
     private fb: FormBuilder,
     private auth: AuthService,
@@ -33,7 +40,6 @@ export class LoginPageComponent implements OnInit {
       password: [''],
     });
 
-    
   }
 
   submit() {
@@ -49,6 +55,18 @@ export class LoginPageComponent implements OnInit {
         this.error$.next(err.error.message);
       }
     );
+  }
+
+  public signInWithGoogle(): void {
+    this.auth.googleService.signIn(GoogleLoginProvider.PROVIDER_ID).then(() => {
+      this.auth.signInWithGoogle().subscribe(() => {
+        this.router.navigate(['/user']);
+      });
+    });
+  }
+
+  public signOut(): void {
+    this.auth.signOut();
   }
 
   //   this.form = this.fb.group(
@@ -111,5 +129,3 @@ export class LoginPageComponent implements OnInit {
   //   }
   // }
 }
-
-
