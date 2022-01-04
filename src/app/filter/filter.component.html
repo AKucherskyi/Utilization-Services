@@ -1,127 +1,145 @@
 <div class="container">
-
   <div class="exit-btn">
-    <span class="material-icons">
-      close
-      </span>
+    <span class="material-icons"> close </span>
   </div>
 
   <div class="search">
-    <input type="text" class="search-input" placeholder="Search point by name...">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search point by name..."
+    />
     <button>
-      <span class="material-icons">
-        search
-        </span>
+      <span class="material-icons"> search </span>
     </button>
   </div>
 
+  <h2>Select type of <b>waste</b></h2>
 
-  <div>
-    <input
-      type="checkbox"
-      id="plastic"
-      name="plastic"
-      [(ngModel)]="plastic"
-      (change)="onToggle('plastic')"
-    />
-    <label for="plastic"></label>
-    <span>Plastic</span>
+  <div class="types-row">
+    <div>
+      <input
+        type="checkbox"
+        id="plastic"
+        name="plastic"
+        [(ngModel)]="plastic"
+        (change)="onToggle('plastic')"
+      />
+      <label for="plastic"><span>Plastic</span></label>
+      
+    </div>
+
+    <div>
+      <input
+        type="checkbox"
+        id="metal"
+        name="metal"
+        [(ngModel)]="metal"
+        (change)="onToggle('metal')"
+      />
+      <label for="metal"><span>Metal</span></label>
+      
+    </div>
+
+    <div>
+      <input
+        type="checkbox"
+        id="paper"
+        name="paper"
+        [(ngModel)]="paper"
+        (change)="onToggle('paper')"
+      />
+      <label for="paper"><span>Paper</span></label>
+      
+    </div>
+
+    <div>
+      <input
+        type="checkbox"
+        id="batteries"
+        name="batteries"
+        [(ngModel)]="batteries"
+        (change)="onToggle('batteries')"
+      />
+      <label for="batteries"><span>Batteries</span></label>
+      
+    </div>
+
+    <div>
+      <input
+        type="checkbox"
+        id="glass"
+        name="glass"
+        [(ngModel)]="glass"
+        (change)="onToggle('glass')"
+      />
+      <label for="glass"><span>Glass</span></label>
+      
+    </div>
+
+    
   </div>
 
-  <div>
-    <input
-      type="checkbox"
-      id="metal"
-      name="metal"
-      [(ngModel)]="metal"
-      (change)="onToggle('metal')"
-    />
-    <label for="metal"></label>
-    <span>Metal</span>
-  </div>
+  <div class="types-row">
 
-  <div>
-    <input
-      type="checkbox"
-      id="paper"
-      name="paper"
-      [(ngModel)]="paper"
-      (change)="onToggle('paper')"
-    />
-    <label for="paper"></label>
-    <span>Paper</span>
-  </div>
+    <div>
+      <input
+        type="checkbox"
+        id="clothes"
+        name="clothes"
+        [(ngModel)]="clothes"
+        (change)="onToggle('clothes')"
+      />
+      <label for="clothes"><span>Clothes</span></label>
+      
+    </div>
+    
 
-  <div>
-    <input
-      type="checkbox"
-      id="batteries"
-      name="batteries"
-      [(ngModel)]="batteries"
-      (change)="onToggle('batteries')"
-    />
-    <label for="batteries"></label>
-    <span>Batteries</span>
-  </div>
+    <div>
+      <input
+        type="checkbox"
+        id="lightbulbs"
+        name="lightbulbs"
+        [(ngModel)]="lightbulbs"
+        (change)="onToggle('lightbulbs')"
+      />
+      <label for="lightbulbs"><span>Light bulbs</span></label>
+      
+    </div>
 
-  <div>
-    <input
-      type="checkbox"
-      id="glass"
-      name="glass"
-      [(ngModel)]="glass"
-      (change)="onToggle('glass')"
-    />
-    <label for="glass"></label>
-    <span>Glass</span>
-  </div>
+    <div>
+      <input
+        type="checkbox"
+        id="ewaste"
+        name="ewaste"
+        [(ngModel)]="ewaste"
+        (change)="onToggle('ewaste')"
+      />
+      <label for="ewaste"><span>E-Waste</span></label>
+      
+    </div>
 
-  <div>
-    <input
-      type="checkbox"
-      id="clothes"
-      name="clothes"
-      [(ngModel)]="clothes"
-      (change)="onToggle('clothes')"
-    />
-    <label for="clothes"></label>
-    <span>Clothes</span>
-  </div>
+    <div>
+      <input
+        type="checkbox"
+        id="organic"
+        name="organic"
+        [(ngModel)]="organic"
+        (change)="onToggle('organic')"
+      />
+      <label for="organic"><span>Organic</span></label>
+      
+    </div>
 
-  <div>
-    <input
-      type="checkbox"
-      id="lightbulbs"
-      name="lightbulbs"
-      [(ngModel)]="lightbulbs"
-      (change)="onToggle('lightbulbs')"
-    />
-    <label for="lightbulbs"></label>
-    <span>Light bulbs</span>
-  </div>
-
-  <div>
-    <input
-      type="checkbox"
-      id="ewaste"
-      name="ewaste"
-      [(ngModel)]="ewaste"
-      (change)="onToggle('ewaste')"
-    />
-    <label for="ewaste"></label>
-    <span>E-Waste</span>
-  </div>
-
-  <div>
-    <input
-      type="checkbox"
-      id="organic"
-      name="organic"
-      [(ngModel)]="organic"
-      (change)="onToggle('organic')"
-    />
-    <label for="organic"></label>
-    <span>Organic</span>
+    <div>
+      <input
+        type="checkbox"
+        id="mixed"
+        name="mixed"
+      />
+      <label for="clothes"><span>Mixed</span></label>
+      
+    </div>
   </div>
 
   <!-- <p>Terms of payment</p>
@@ -153,4 +171,4 @@
     <label for="metal"> Delivery</label>
   </div>
 </div> -->
-
+</div>

@@ -162,7 +162,7 @@ export class MapComponent implements OnInit {
         });
 
         let popup = new mapboxgl.Popup({
-          offset: 25,
+          offset: 0,
           closeButton: false,
         }).setDOMContent(popupContent);
 

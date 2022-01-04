@@ -61,6 +61,8 @@ export class AuthService {
   public signInWithGoogle(): Observable<any> {
     return this.googleService.authState.pipe(
       tap((user) => {
+        console.log(user);
+        
         if (user) {
           localStorage.setItem('token', user.idToken);
           localStorage.setItem('firstname', user.firstName);

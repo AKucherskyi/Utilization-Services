@@ -9,8 +9,8 @@
   background: #ffffff;
   border: 1px solid #8d8b88;
   box-sizing: border-box;
-  border-radius: 5px;
-  font-family: "Roboto";
+  display: flex;
+  flex-direction: column;
   & > div {
     margin-top: 5px;
     line-height: 22px;
@@ -21,6 +21,21 @@
     label {
       margin-left: 5px;
     }
+  }
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 300;
+  color: #908C8C;
+  margin-bottom: 55px;
+  border-bottom: 2px solid #007EBA;
+  padding: 10px;
+  align-self: center;
+
+  b {
+    color: #007EBA;
+    font-weight: 700;
   }
 }
 
@@ -44,16 +59,16 @@ p {
   height: 44px;
   border: 1px solid #007EBA;
   box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   padding: 0 5px;
 }
 
 .search {
 
+  margin-bottom: 40px;
+
 
   button {
-    position: relative;
-    right: 35px;
     width: 45px;
     height: 44px;
     background: #007EBA;
@@ -71,6 +86,23 @@ p {
       top: 2px;
       left: 1px;
     }
+  }
+}
+
+.types-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 300;
+  margin-bottom: 30px;
+
+  label {
+    span {
+      position: relative;
+    top: 45px;
+    white-space: nowrap;
+    }
+    
   }
 }
 
