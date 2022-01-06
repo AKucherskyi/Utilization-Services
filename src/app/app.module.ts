@@ -25,8 +25,7 @@ import { RulesDetailsComponent } from './rules-details/rules-details.component';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { AuthInterceptor } from './services/auth.interceptor';
-import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
-import { environment } from 'src/environments/environment';
+
 
 
 @NgModule({
@@ -51,25 +50,9 @@ import { environment } from 'src/environments/environment';
     BrowserAnimationsModule,
     NgxPageScrollCoreModule,
     NgxPageScrollModule,
-    SharedModule,
-    SocialLoginModule
+    SharedModule
   ],
-  providers: [AuthService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-    {
-      provide: "SocialAuthServiceConfig",
-      useValue: {
-        autoLogin: true,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-              environment.clientId
-            )
-          }
-        ]
-      } as SocialAuthServiceConfig
-    }
-  ],
+  providers: [AuthService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

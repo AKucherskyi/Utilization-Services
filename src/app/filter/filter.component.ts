@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MarkerService, TypeOfWaste } from './../services/marker.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -17,7 +18,7 @@ export class FilterComponent implements OnInit {
   ewaste: boolean = false;
   organic: boolean = false;
 
-  constructor(private markerService: MarkerService) {}
+  constructor(private markerService: MarkerService, public router: Router) {}
 
   ngOnInit(): void {}
 

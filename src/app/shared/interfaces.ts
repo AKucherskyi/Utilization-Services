@@ -75,3 +75,9 @@ export interface LoginResponse {
     comments: any[]
     token: string
 }
+
+export interface GoogleAuthResponse {
+    clientId: string
+    credential: string
+    select_by: string
+}
