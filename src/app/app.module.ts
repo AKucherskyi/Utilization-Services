@@ -25,6 +25,9 @@ import { RulesDetailsComponent } from './rules-details/rules-details.component';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
 import { AuthInterceptor } from './services/auth.interceptor';
+import { FavouritesComponent } from './favourites/favourites.component';
+import { FavouritesPageComponent } from './pages/favourites-page/favourites-page.component';
+import { FavouritesPageModule } from './pages/favourites-page/favourites-page.module';
 
 
 
@@ -40,7 +43,8 @@ import { AuthInterceptor } from './services/auth.interceptor';
     AddServicePageComponent,
     HomeComponent,
     HomePageComponent,
-    RulesDetailsComponent
+    RulesDetailsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,8 @@ import { AuthInterceptor } from './services/auth.interceptor';
     BrowserAnimationsModule,
     NgxPageScrollCoreModule,
     NgxPageScrollModule,
-    SharedModule
+    SharedModule,
+  
   ],
   providers: [AuthService, {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]

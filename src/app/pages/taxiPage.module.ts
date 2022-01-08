@@ -7,13 +7,13 @@ import { TaxiComponent } from "../taxi/taxi.component";
 import { TaxiPageComponent } from "./taxi/taxiPage.component";
 
 
+
 @NgModule({
     declarations: [
         TaxiPageComponent,
-        TaxiComponent,
-        
-        
+        TaxiComponent
     ],
+    
     imports: [
       CommonModule,
       BrowserModule,
