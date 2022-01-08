@@ -33,7 +33,7 @@ export class AuthService {
     if (localStorage.getItem('user_id')) {
       return JSON.parse(localStorage.getItem('user')!)
     } else {
-      return {}
+      return null
     }
   }
 
