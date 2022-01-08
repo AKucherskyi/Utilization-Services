@@ -52,8 +52,6 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
 
 
   signInWithGoogle(response: GoogleAuthResponse) {
-    console.log(response.credential)
-
     this.auth.signInWithGoogle(response.credential).subscribe(
       () => {
         this.router.navigate(['/user']);
@@ -64,8 +62,6 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
     );
 
   }
-
- 
 
   submit() {
     if (this.form.invalid) {

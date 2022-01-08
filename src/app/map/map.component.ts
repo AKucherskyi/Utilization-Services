@@ -104,7 +104,7 @@ export class MapComponent implements OnInit {
         });
 
         const popupContent = document.createElement('div');
-        let favorite = this.user.favorites.includes(feature.properties.id)
+        let favorite = this.user.favorites?.includes(feature.properties.id)
         popupContent.innerHTML = `
               <div class="popup-image"></div>
               <div class="popup-description">
