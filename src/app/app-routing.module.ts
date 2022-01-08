@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: 'home', component: HomePageComponent },
       { path: 'rules', component: RulesPageComponent },
       {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
-      { path: 'user', loadChildren: () => import('./pages/user-page/user-page.module').then(m => m.UserPageModule) },
+      { path: 'user', loadChildren: () => import('./pages/user-page/user-page.module').then(m => m.UserPageModule), canActivate: [AuthGuard] },
       { path: '**', redirectTo: '/home' }
 ];
 

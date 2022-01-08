@@ -1,6 +1,8 @@
+import { LoginResponse } from './../shared/interfaces';
+import { AuthService } from 'src/app/services/auth.service';
 import { MarkerService, TypeOfWaste } from './../services/marker.service';
 import { environment } from '../../environments/environment';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import * as mapboxgl from 'mapbox-gl';
 import { GeoJson } from '../shared/interfaces';
 import { Router } from '@angular/router';
@@ -12,6 +14,7 @@ import { Router } from '@angular/router';
 })
 export class MapComponent implements OnInit {
   showComments: boolean = false;
+  user!: LoginResponse
 
   map!: mapboxgl.Map;
   style = 'mapbox://styles/mapbox/streets-v9';
@@ -32,7 +35,10 @@ export class MapComponent implements OnInit {
     organic: true,
   };
 
-  constructor(private markerService: MarkerService, private router: Router) {}
+  favoriteBtnActive: boolean = false
+
+  constructor(private markerService: MarkerService, private router: Router, private auth: AuthService, 
+    private cd: ChangeDetectorRef) {}
 
   ngOnInit() {
     (mapboxgl as any).accessToken = environment.mapbox.accessToken;
@@ -59,6 +65,10 @@ export class MapComponent implements OnInit {
         this.show();
       }
     );
+
+    this.auth.getUser().subscribe(user => {
+      this.user = user
+    })
   }
 
   hide() {
@@ -94,13 +104,14 @@ export class MapComponent implements OnInit {
         });
 
         const popupContent = document.createElement('div');
+        let favorite = this.user.favorites.includes(feature.properties.id)
         popupContent.innerHTML = `
               <div class="popup-image"></div>
               <div class="popup-description">
               <div class="popup-title">
-              <h3>${feature.properties.title}</h3>
+              <h3>${feature.properties.title} ${this.user?.firstname}</h3>
                 <div class="popup-button-wrapper">
-                  <div class="popup-button">
+                  <div class=" popup-button ${favorite ? 'popup-button-active' : ''}">
                     <img src="../assets/heart-filled.png" data-btn="favorite">
                   </div>
                 </div>
@@ -151,7 +162,9 @@ export class MapComponent implements OnInit {
           if (target.dataset.btn) {
             switch (target.dataset.btn) {
               case 'favorite':
-                console.log('favorite');
+                target.parentElement?.classList.toggle('popup-button-active')
+                console.log(this.user.favorites);
+                
                 
                 break;
               case 'details' :
@@ -183,6 +196,9 @@ export class MapComponent implements OnInit {
       }
     }
   }
+
+
+
 
   private showServiceComments(id: string) {
     console.log(id);

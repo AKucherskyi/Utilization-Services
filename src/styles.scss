@@ -281,12 +281,16 @@ h6 {
   
 
   .popup-button {
-    background-color: rgba(241, 76, 76, 1);
+    background-color: rgb(194, 194, 194);
     border-radius: 50%;
 
     img {
       padding: 13px;
     }
+  }
+
+  .popup-button-active {
+    background-color: rgba(241, 76, 76, 1) !important;
   }
 
   .popup-button-wrapper {

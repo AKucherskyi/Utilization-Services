@@ -62,6 +62,19 @@ export interface RegisterResponse {
     updated_at: string
 }
 
+export interface User {
+    user_id: string
+    email: string
+    firstname: string
+    lastname: string
+    password: string
+    created_at: string
+    updated_at: string
+    services: any[]
+    questions: any[]
+    comments: any[]
+}
+
 export interface LoginResponse {
     user_id: string
     email: string
@@ -73,6 +86,7 @@ export interface LoginResponse {
     services: any[]
     questions: any[]
     comments: any[]
+    favorites: any[]
     token: string
 }
 

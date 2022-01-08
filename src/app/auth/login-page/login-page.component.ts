@@ -4,11 +4,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { AfterViewInit, Component, NgZone, OnInit } from '@angular/core';
 import {
-  AbstractControl,
   FormBuilder,
   FormGroup,
-  ValidationErrors,
-  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { Subject, BehaviorSubject } from 'rxjs';
@@ -19,7 +16,6 @@ declare const google: any;
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
-  providers: [AuthService],
 })
 export class LoginPageComponent implements OnInit, AfterViewInit {
   constructor(
@@ -56,6 +52,7 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
 
 
   signInWithGoogle(response: GoogleAuthResponse) {
+    console.log(response.credential)
 
     this.auth.signInWithGoogle(response.credential).subscribe(
       () => {
@@ -74,6 +71,13 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
     if (this.form.invalid) {
       return;
     }
-    this.auth.login(this.form.value.email, this.form.value.password)
+    this.auth.login(this.form.value.email, this.form.value.password).subscribe(
+      () => {
+        this.router.navigate(['/user']);
+      },
+      (err) => {
+        this.error$.next(err.error.message);
+      }
+    );
   }
 }

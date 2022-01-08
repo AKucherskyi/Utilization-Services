@@ -2,12 +2,16 @@ import { LoginResponse } from './../shared/interfaces';
 import { catchError, tap, switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, of, throwError, BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
+  user$: BehaviorSubject<LoginResponse> = new BehaviorSubject(this.getUserFromLocalstorage())
+
   constructor(
     private http: HttpClient,
    
@@ -21,6 +25,18 @@ export class AuthService {
     }
   }
 
+  getUser() {
+    return this.user$.asObservable()
+  }
+
+  getUserFromLocalstorage() {
+    if (localStorage.getItem('user_id')) {
+      return JSON.parse(localStorage.getItem('user')!)
+    } else {
+      return {}
+    }
+  }
+
   isAuthenticated(): boolean {
     return !!this.token;
   }
@@ -30,6 +46,7 @@ export class AuthService {
       .post<any>(`${environment.serverUrl}/api/v1/login`, { email, password })
       .pipe(
         tap((response: LoginResponse) => {
+          this.user$.next(response)
           this.setToken(response);
         }),
         catchError((err) => {
@@ -59,16 +76,20 @@ export class AuthService {
 
   public signInWithGoogle(token: string){
     return this.http.post<any>(`${environment.serverUrl}/api/v1/googleLogin`, {token}).pipe(
-      tap(response => console.log(response))
+      tap(response => {
+        this.user$.next(response)
+        this.setToken(response)
+      })
     )
   }
 
 
 
-  public setToken(response: LoginResponse) {
+  private setToken(response: LoginResponse) {
     localStorage.setItem('token', response.token);
     localStorage.setItem('firstname', response.firstname);
     localStorage.setItem('lastname', response.lastname);
     localStorage.setItem('user_id', response.user_id);
+    localStorage.setItem('user', JSON.stringify(response));
   }
 }
