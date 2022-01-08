@@ -74,4 +74,8 @@ export class MarkerService {
     return this.http.get<any>(url + query + '.json?type=address&country=ru&access_token=' + environment.mapbox.accessToken)
     .pipe(map(res => res.features))
   }
+
+  toggleFavorite(service_id: string) {
+    return this.http.patch<any>(`${environment.serverUrl}/api/v1/toggleFavorite`, {service_id})
+  }
 }

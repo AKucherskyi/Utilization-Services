@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.auth.logout();
     this.exitButton = false; 
-    this.router.navigate(['/map'])
+    this.router.navigate(['/auth', 'login'])
   }
 
 }

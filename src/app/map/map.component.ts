@@ -104,7 +104,7 @@ export class MapComponent implements OnInit {
         });
 
         const popupContent = document.createElement('div');
-        let favorite = this.user.favorites?.includes(feature.properties.id)
+        let favorite = !!this.user.favorites?.find(service => service.service_id == feature.properties.id)
         popupContent.innerHTML = `
               <div class="popup-image"></div>
               <div class="popup-description">
@@ -163,7 +163,11 @@ export class MapComponent implements OnInit {
             switch (target.dataset.btn) {
               case 'favorite':
                 target.parentElement?.classList.toggle('popup-button-active')
-                console.log(this.user.favorites);
+                if (this.user) {
+                  this.markerService.toggleFavorite(feature.properties.id).subscribe(response => {
+                    localStorage.setItem('user', JSON.stringify(response));
+                  })
+                }
                 
                 
                 break;
