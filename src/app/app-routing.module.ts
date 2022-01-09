@@ -16,7 +16,7 @@ const routes: Routes = [
       { path: 'add', component: AddServicePageComponent, canActivate: [AuthGuard] },
       { path: 'home', component: HomePageComponent },
       { path: 'rules', component: RulesPageComponent },
-      {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
+       {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
       { path: 'user', loadChildren: () => import('./pages/user-page/user-page.module').then(m => m.UserPageModule), canActivate: [AuthGuard] },
       { path: 'favourites', loadChildren: () => import('./pages/favourites-page/favourites-page.module').then(m => m.FavouritesPageModule), canActivate: [AuthGuard] },
       { path: '**', redirectTo: '/home' }

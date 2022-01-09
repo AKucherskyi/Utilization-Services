@@ -1,3 +1,4 @@
+import { LoginResponse } from './../../shared/interfaces';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-page.component.scss']
 })
 export class UserPageComponent implements OnInit {
+  user!: LoginResponse | null
 
   constructor() { }
 
   ngOnInit(): void {
+      this.user = JSON.parse(localStorage.getItem('user') as string)
   }
 
 }
