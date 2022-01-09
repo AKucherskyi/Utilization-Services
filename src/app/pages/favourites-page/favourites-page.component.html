@@ -1,1 +1,7 @@
-
+<div *ngIf="favorites$ | async as favorites" class="container">
+    <h2>Favorites lists</h2>
+  <app-favourites 
+  *ngFor="let fav of favorites" 
+  [favorites]="fav">
+</app-favourites>
+</div>
