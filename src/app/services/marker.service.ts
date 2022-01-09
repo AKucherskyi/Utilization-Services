@@ -78,4 +78,5 @@ export class MarkerService {
   toggleFavorite(service_id: string) {
     return this.http.patch<any>(`${environment.serverUrl}/api/v1/toggleFavorite`, {service_id})
   }
+  
 }

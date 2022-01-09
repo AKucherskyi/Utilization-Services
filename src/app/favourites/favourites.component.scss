@@ -1,0 +1,34 @@
+.fav-card {
+  display: flex;
+  margin: 80px auto;
+  width: 1000px
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 22px;
+  color: #005e8b;
+  margin-bottom: 15px;
+}
+
+.fav-body {
+  margin-left: 54px;
+}
+
+.fav-desc {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 18px;
+  color: #5c5c5c;
+  padding-top: 20px;
+}
+
+.fav-adr {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 15px;
+  color: #767676;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #C4C4C4;
+  
+}
