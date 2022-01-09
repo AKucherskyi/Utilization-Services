@@ -1,5 +1,12 @@
-div {
-    width: 600px;
-    height: 600px;
-    background-color: aqua;
+.container {
+    width: 1350px;
+    margin: 100px auto 0;
+}
+
+h2 {
+    font-size: 30px;
+    margin-top: 30px;
+    display: inline-block;
+    border-bottom: 3px solid #007FBA;
+    padding-bottom: 15px;
 }
