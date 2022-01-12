@@ -7,6 +7,7 @@ import { UserPageComponent } from './user-page.component';
 import { TitleComponent } from './title/title.component';
 import { MainComponent } from './main/main.component';
 import { AsideComponent } from './aside/aside.component';
+import { PasswordDialogComponent } from './password-dialog/password-dialog/password-dialog.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { AsideComponent } from './aside/aside.component';
     UserPageComponent,
     TitleComponent,
     MainComponent,
-    AsideComponent
+    AsideComponent,
+    PasswordDialogComponent
   ],
   imports: [
     SharedModule,

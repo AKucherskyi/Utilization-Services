@@ -102,6 +102,11 @@ h6 {
   font-weight: inherit;
 }
 
+.mat-dialog-actions {
+  display: flex;
+  justify-content: center;
+}
+
 .marker {
   background-image: url("./assets/mapbox-icon-plastic.png");
   background-size: cover;
@@ -190,19 +195,19 @@ h6 {
 .mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
-    border-bottom-color: transparent;
-    }
+  border-bottom-color: transparent;
+}
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
 .mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip {
-    border-top-color: transparent;
-    }
+  border-top-color: transparent;
+}
 .mapboxgl-popup-anchor-left .mapboxgl-popup-tip {
-    border-right-color: transparent;
-    }
+  border-right-color: transparent;
+}
 .mapboxgl-popup-anchor-right .mapboxgl-popup-tip {
-    border-left-color: transparent;
-    }
+  border-left-color: transparent;
+}
 
 .mapboxgl-popup-content {
   text-align: left;
@@ -277,12 +282,11 @@ h6 {
   width: calc(100% - 20px);
   background-color: #fff;
   padding: 14px;
-  
-  
 
   .popup-button {
     background-color: rgb(194, 194, 194);
     border-radius: 50%;
+    cursor: pointer;
 
     img {
       padding: 13px;
@@ -299,8 +303,6 @@ h6 {
     position: relative;
     bottom: 16px;
     padding: 4px;
-    
-
   }
 
   h3 {
@@ -341,6 +343,7 @@ h6 {
   width: 100%;
   align-items: center;
   margin-top: 15px;
+  cursor: pointer;
 
   h4 {
     display: inline;
@@ -423,3 +426,5 @@ h6 {
 .lightbulbs.ewaste.plastic {
   background-image: url("./assets/multi-icon.png") !important;
 }
+
+

@@ -88,6 +88,7 @@ export interface LoginResponse {
     comments: any[]
     favorites: any[]
     token: string
+    isActivated: boolean
 }
 
 export interface GoogleAuthResponse {

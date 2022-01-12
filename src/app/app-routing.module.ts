@@ -19,6 +19,7 @@ const routes: Routes = [
        {path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
       { path: 'user', loadChildren: () => import('./pages/user-page/user-page.module').then(m => m.UserPageModule), canActivate: [AuthGuard] },
       { path: 'favorites', loadChildren: () => import('./pages/favourites-page/favourites-page.module').then(m => m.FavouritesPageModule), canActivate: [AuthGuard] },
+      { path: 'service/:id', loadChildren: () => import('./pages/service-page/service-page.module').then(m => m.ServicePageModule) },
       { path: '**', redirectTo: '/home' }
 ];
 

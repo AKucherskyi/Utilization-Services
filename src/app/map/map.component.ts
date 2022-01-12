@@ -168,11 +168,9 @@ export class MapComponent implements OnInit {
                   localStorage.setItem('user', JSON.stringify(response));
                   })
                 }
-                
-                
                 break;
               case 'details' :
-                console.log('details');
+                this.router.navigate(['/service', feature.properties.id])
                 break;  
             }
           }

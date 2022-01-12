@@ -1,5 +1,6 @@
 import { LoginResponse } from './../../../shared/interfaces';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 
 @Component({
   selector: 'app-title',
@@ -9,11 +10,16 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TitleComponent implements OnInit {
  
   @Input() user!: LoginResponse | null
+  @Output() dialog: EventEmitter<any> = new  EventEmitter()
 
   constructor() { }
 
   ngOnInit(): void {
     
+  }
+
+  changePassword() {
+    this.dialog.emit(null)
   }
 
 }

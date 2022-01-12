@@ -77,13 +77,16 @@ export class AuthService {
   public signInWithGoogle(token: string){
     return this.http.post<any>(`${environment.serverUrl}/api/v1/googleLogin`, {token}).pipe(
       tap(response => {
+        console.log(response);
         this.user$.next(response)
         this.setToken(response)
       })
     )
   }
 
-
+  public changePassword(new_password: string): Observable<any> {
+    return this.http.patch<any>(`${environment.serverUrl}/api/v1/changePassword`, {new_password})
+  }
 
   private setToken(response: LoginResponse) {
     localStorage.setItem('token', response.token);
