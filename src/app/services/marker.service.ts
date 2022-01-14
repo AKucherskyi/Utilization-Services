@@ -78,5 +78,9 @@ export class MarkerService {
   toggleFavorite(service_id: string) {
     return this.http.patch<any>(`${environment.serverUrl}/api/v1/toggleFavorite`, {service_id})
   }
+
+  whatsapp(service_id: string) {
+    return this.http.post<any>(`${environment.serverUrl}/api/v1/whatsapp`, {service_id})
+  }
   
 }

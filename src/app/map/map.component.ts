@@ -128,7 +128,7 @@ export class MapComponent implements OnInit {
 
                 <div data-btn="details">
                 Details 
-                <img src="../assets/east.png"/ >
+                <img src="../assets/east.png"  data-btn="details"/ >
                 </div>
               </div>
               

@@ -24,4 +24,11 @@ export class ServicePageComponent implements OnInit {
     })
   }
 
+  whatsapp() {
+    this.markerService.whatsapp(this.service.service_id).subscribe(response => {
+      console.log(response);
+      
+    })
+  }
+
 }

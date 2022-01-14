@@ -1,1 +1,5 @@
 <p>{{service?.summary}}</p>
+
+<img src="{{service?.type | typeimg}}" alt="" width="300" height="200">
+
+<p (click)="whatsapp()">{{service?.phone_number}}</p>
